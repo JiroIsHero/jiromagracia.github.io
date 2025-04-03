@@ -16,13 +16,15 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
+    
     <body>
         <style>
             /* Style for the video section */
             .video-section {
                 width: 100%;      /* Full width of the viewport */
                 position: relative;
-                background-color: black; /* Black background for the video section */
+                background-color: transparent;
+                margin-top: 100px; /* Adds space above the video */
             }
     
             /* Make sure the video iframe fills the container */
@@ -31,7 +33,6 @@
                 height: 100%;     /* Full height */
                 border: none;     /* Remove the border */
                 object-fit: cover;/* Ensures the video covers the container */
-            }
         </style>
         <!-- Video Section -->
         <section class="video-section">
@@ -42,25 +43,26 @@
         </section>
     </body>
 </html>
-<nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="background-color: #002d00;">
-            <div class="container">
-                <a class="navbar-brand" href="#page-top">Jiro Magracia</a>
-                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+<nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="#page-top">Jiro Magracia</a>
+    <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto">  <!-- Right-aligned links -->
+        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a></li>
+        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
+        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
         <!-- Masthead-->
+        <hr class="section-line">
 <!-- CV Section -->
-<section id="cv" class="py-5" style="background-color: #002d00; color: white;">
+<section id="cv" class="py-5" style="color: white;">
     <div class="container">
         <h2 class="text-center text-uppercase mb-4">Resume</h2>
 
@@ -71,40 +73,64 @@
             </div>
         </div>
 
-        <!-- Work Experience Section (now comes first) -->
-        <div class="row mb-4">
-            <div class="col-lg-6">
-                <h3>Work Experience</h3>
-                <ul>
-                    <li><strong>Character Animator</strong> - Studio Soi, From April 2025</li>
-                    <li><strong>Character Animator</strong> - AnimationsFabrik, November 2024-March 2025</li>
-                    <li><strong>Character Animator</strong> - Studio Filmbilder, November 2024-March 2025</li>
-                    <li><strong>Character Animator</strong> - bitteschoen.tv, November 2024-March 2025</li>
-                    <!-- Add more items here -->
-                </ul>
+        <section id="work-education-section" class="d-flex">
+            <section id="work-education-section" class="row">
+                <section id="work-education-section" class="row">
+    <!-- Work Experience Section -->
+    <div class="col-lg-6 work-experience">
+        <h2>Work Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="line"></div>
+                <div class="content">
+                    <h3>Character Animator - Studio Soi</h3>
+                    <p>From April 2025</p>
+                </div>
             </div>
-
-            <!-- Education Section (now comes second) -->
-            <div class="col-lg-6">
-                <h3>Education</h3>
-                <ul>
-                    <li><strong>Degree Name</strong> - University Name, Year</li>
-                    <li><strong>Degree Name</strong> - University Name, Year</li>
-                    <!-- Add more items here -->
-                </ul>
+            <div class="timeline-item">
+                <div class="line"></div>
+                <div class="content">
+                    <h3>Character Animator - AnimationsFabrik</h3>
+                    <p>November 2024 - March 2025</p>
+                </div>
             </div>
-        </div>
+            <div class="timeline-item">
+                <div class="line"></div>
+                <div class="content">
+                    <h3>Character Animator - Studio Filmbilder</h3>
+                    <p>November 2024 - March 2025</p>
+                </div>
             </div>
-        </div>
-
-        <!-- Download CV Button -->
-        <div class="row mt-4">
-            <div class="col-lg-12 text-center">
-                <a href="path/to/your/CV.pdf" class="btn btn-primary" target="_blank">Download My CV</a>
+            <div class="timeline-item">
+                <div class="line"></div>
+                <div class="content">
+                    <h3>Character Animator - bitteschoen.tv</h3>
+                    <p>November 2024 - March 2025</p>
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- Education Section -->
+    <div class="col-lg-6 education">
+        <h2>Education</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="line"></div>
+                <div class="content">
+                    <h3>Animation Mentor</h3>
+                    <p>Graduated: 2024</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="line"></div>
+                <div class="content">
+                    <h3>Diploma Animation - Filmakademie Baden-Württemberg/Animationsinstitut</h3>
+                    <p>Graduated: 2026</p>
+                </div>
+    
 </section>
+<hr class="section-line">
         </header>
 <!-- About Section-->
 <section class="page-section" id="about" style="background-color: #002d00; color: white;">
@@ -118,7 +144,9 @@
         </div>
 
         <!-- About Section Content-->
+
         <div class="row">
+                    <div class="row">
             <div class="col-lg-4 ms-auto">
                 <p class="lead">Born and raised in Japan, Italy and Germany! I have love and respect for Animation for as long as I can remember.
                     I started YouTubing as a kid and gained a big following which motivated me to further study my craft. 
@@ -131,12 +159,9 @@
         </div>
     </div>
 </section>
-<section id="about" class="page-section bg-light py-5">
-    <div class="container">
-        <h2 class="text-center">About</h2>
-        <p class="text-center">This is the About section...</p>
-    </div>
-</section>
+<section id="section1" style="margin-bottom: 40px;">
+    <h2> </h2>
+
     </div>
 </section>
         </section>
@@ -163,10 +188,9 @@
                     </div>
                     <!-- Footer About Text-->
                     <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                        <h4 class="text-uppercase mb-4">Contact Me</h4>
                         <p class="lead mb-0">
-                            Freelance is a free to use, MIT licensed Bootstrap theme created by
-                            <a href="http://startbootstrap.com">Start Bootstrap</a>
+                            Contact me through jiroishero(at)gmail(dot)com
                             .
                         </p>
                     </div>

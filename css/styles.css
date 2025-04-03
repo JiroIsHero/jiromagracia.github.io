@@ -62,7 +62,7 @@
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
-  --bs-body-bg: #fff;
+  --bs-body-bg: transparent;
   --bs-border-width: 0.125rem;
   --bs-border-style: solid;
   --bs-border-color: #dee2e6;
@@ -99,9 +99,10 @@ body {
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
-  background-color: var(--bs-body-bg);
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  height: 100vh; /* Full viewport height */
+  background-color: transparent; /* Remove any background color from the body */
+}
+}
 }
 
 hr {
@@ -3736,7 +3737,7 @@ textarea.form-control-lg {
   --bs-navbar-brand-padding-y: 0.3125rem;
   --bs-navbar-brand-margin-end: 1rem;
   --bs-navbar-brand-font-size: 1.25rem;
-  --bs-navbar-brand-color: rgba(0, 0, 0, 0.9);
+  --bs-navbar-brand-color: rgba(255, 255, 255, 0.9);
   --bs-navbar-brand-hover-color: rgba(0, 0, 0, 0.9);
   --bs-navbar-nav-link-padding-x: 0.5rem;
   --bs-navbar-toggler-padding-y: 0.25rem;
@@ -3782,10 +3783,10 @@ textarea.form-control-lg {
 .navbar-nav {
   --bs-nav-link-padding-x: 0;
   --bs-nav-link-padding-y: 0.5rem;
-  --bs-nav-link-font-weight: ;
-  --bs-nav-link-color: var(--bs-navbar-color);
-  --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
-  --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
+  --bs-nav-link-font-weight: bold;  /* If you want bold text */
+  --bs-nav-link-color: white;  /* Set text color to white */
+  --bs-nav-link-hover-color: white;  /* Set hover color to white */
+  --bs-nav-link-disabled-color: rgba(0, 0, 0, 0.5);  /* Optional: Grey color for disabled links */
   display: flex;
   flex-direction: column;
   padding-left: 0;
@@ -10826,9 +10827,29 @@ textarea.form-control-lg {
   }
 }
 html {
+  position: relative; /* Needed for positioning the pseudo-element */
   height: 100%;
   scroll-padding-top: calc(4.5rem - 1px);
+  background-image: url("../assets/img/background.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
 }
+
+/* Create a pseudo-element with a blurred background */
+html::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../assets/img/background.jpg"); /* Correct path to the image */
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  filter: blur(8px); /* Apply the blur effect */
+  z-index: -1; /* Ensure the blurred background is behind the content */
 
 .page-section {
   padding: 6rem 0;
@@ -11043,4 +11064,182 @@ html {
 
 .copyright {
   background-color: #1a252f;
+}
+margin: 0;
+font-family: var(--bs-body-font-family);
+font-size: var(--bs-body-font-size);
+font-weight: var(--bs-body-font-weight);
+line-height: var(--bs-body-line-height);
+color: var(--bs-body-color);
+text-align: var(--bs-body-text-align);
+height: 100vh;
+background-color: transparent; /* Ensure no extra background color */
+}
+
+/* Apply blur effect */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    filter: blur(10px); /* Adjust blur intensity */
+    z-index: -1;
+}
+body {
+  background: url("assets/img/background.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+section, .masthead, .about, .portfolio, .contact {
+  background: transparent !important;
+}
+body, .page-wrapper, .container, .content {
+  background: transparent !important;
+}
+body {
+  background: url("assets/img/background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  margin: 0; /* Remove any margin around the body */
+  padding: 0; /* Remove any padding around the body */
+}
+.section-line {
+  border: 0;
+  height: 1px; /* Line thickness */
+  background-color: white; /* Color of the line */
+  margin: 40px 0; /* Space above and below the line */
+}
+/* Container holding the two sections */
+#work-education-section {
+  display: flex; /* Align items horizontally */
+  justify-content: space-between; /* Space between sections */
+  gap: 20px; /* Space between the two sections */
+  flex-wrap: wrap; /* Wrap if the screen is too small */
+  padding: 50px 20px;
+}
+
+/* Ensure sections take up 50% width on large screens */
+.work-experience, .education {
+  width: 100%; /* Default to 100% for smaller screens */
+  flex: 1 1 48%; /* Flex: grow, shrink, and take 48% width */
+}
+
+/* Container holding the two sections */
+#work-education-section {
+  display: flex; /* Align items horizontally */
+  justify-content: space-between; /* Space between sections */
+  gap: 20px; /* Space between the two sections */
+  flex-wrap: wrap; /* Wrap if the screen is too small */
+  padding: 50px 20px;
+}
+
+/* Ensure sections take up 50% width on large screens */
+.work-experience, .education {
+  width: 100%; /* Default to 100% for smaller screens */
+  flex: 1 1 48%; /* Flex: grow, shrink, and take 48% width */
+}
+
+/* Container holding the two sections */
+#work-education-section {
+  display: flex; /* Align items horizontally */
+  justify-content: space-between; /* Space between sections */
+  gap: 20px; /* Space between the two sections */
+  flex-wrap: wrap; /* Wrap if the screen is too small */
+  padding: 50px 20px;
+}
+
+/* Container holding the two sections */
+#work-education-section {
+  display: flex; /* Align items horizontally */
+  justify-content: space-between; /* Space between sections */
+  gap: 20px; /* Space between the two sections */
+  flex-wrap: wrap; /* Wrap if the screen is too small */
+  padding: 50px 20px;
+}
+
+/* Container holding the two sections */
+#work-education-section {
+  display: flex; /* Align items horizontally */
+  justify-content: space-between; /* Space between sections */
+  gap: 20px; /* Space between the two sections */
+  flex-wrap: wrap; /* Wrap if the screen is too small */
+  padding: 50px 20px;
+}
+
+/* Work Experience and Education Section Styles */
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.timeline {
+  position: relative;
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px 0;
+  position: relative;
+  cursor: pointer; /* Add cursor pointer to indicate interactivity */
+}
+
+.line {
+  width: 4px;
+  background-color: white; /* Make the line white */
+  position: absolute;
+  right: 0; /* Position the line on the right */
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+  opacity: 0.3; /* Make the line less visible by default */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for opacity and scale */
+}
+
+.timeline-item:hover .line {
+  opacity: 1; /* Highlight line when hovering */
+  transform: scaleY(1.1); /* Slightly scale the line for a highlighting effect */
+}
+
+/* Content area */
+.content {
+  padding-left: 40px; /* Create space for the line */
+  padding-right: 30px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.content h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.content p {
+  margin-top: 5px;
+  color: #777;
+}
+
+/* Responsive: If the screen size is smaller, the sections stack */
+@media (max-width: 768px) {
+  #work-education-section {
+    flex-direction: column;
+  }
+
+  .work-experience, .education {
+    width: 100%; /* Full width for small screens */
+  }
+
+  .line {
+    right: 0; /* Keep the line on the right on small screens as well */
+  }
+
+  .content {
+    padding-left: 20px; /* Less padding when stacked */
+  }
 }
