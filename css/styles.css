@@ -11084,7 +11084,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('https://raw.githubusercontent.com/JiroIsHero/jiromagracia.github.io/main/assets/img/background.jpg'); /* Correct background image path */
+  background-image: url("https://raw.githubusercontent.com/JiroIsHero/jiromagracia.github.io/main/assets/img/background.jpg"); /* Correct background image path */
   background-position: center center;
   background-size: cover;
   background-attachment: fixed; /* Optional: keeps the background fixed while scrolling */
@@ -11105,7 +11105,7 @@ body, .page-wrapper, .container, .content {
   background: transparent !important;
 }
 body {
-  background: url("assets/img/background.jpg") no-repeat center center fixed;
+  background: url("https://raw.githubusercontent.com/JiroIsHero/jiromagracia.github.io/main/assets/img/background.jpg") no-repeat center center fixed;
   background-size: cover;
   margin: 0; /* Remove any margin around the body */
   padding: 0; /* Remove any padding around the body */
