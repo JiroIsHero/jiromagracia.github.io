@@ -10830,7 +10830,7 @@ html {
   position: relative; /* Needed for positioning the pseudo-element */
   height: 100%;
   scroll-padding-top: calc(4.5rem - 1px);
-  background-image: url("../assets/img/background.jpg");
+  background-image: url('https://raw.githubusercontent.com/JiroIsHero/jiromagracia.github.io/main/assets/img/background.jpg');
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
@@ -10844,7 +10844,7 @@ html::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("../assets/img/background.jpg"); /* Correct path to the image */
+  background-image: url('https://raw.githubusercontent.com/JiroIsHero/jiromagracia.github.io/main/assets/img/background.jpg'); /* Correct path to the image */
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
