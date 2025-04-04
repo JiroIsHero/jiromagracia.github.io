@@ -15,29 +15,33 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     <body>
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg text-uppercase" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand" href="https://www.linkedin.com/in/jiro-magracia-12636227a/">Jiro Magracia</a>
-                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a>
-                        </li>
-                        <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#resume">Resume</a>
-                        </li>
-                        <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav"> <!-- Added navbar-dark and bg-dark for black background -->
+    <div class="container">
+        <!-- LinkedIn Redirect -->
+        <a class="navbar-brand" href="https://www.linkedin.com/in/jiro-magracia-12636227a/" target="_blank">Jiro Magracia</a>
+        
+        <!-- Hamburger Menu Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i> <!-- White hamburger icon -->
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto"> <!-- Right-aligned navbar links -->
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#resume">Resume</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
     </body>
 </html>
     </div>
