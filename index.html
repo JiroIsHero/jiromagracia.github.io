@@ -7,30 +7,39 @@
         <meta name="author" content="" />
         <title>Jiro Magracia Portfolio Website</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="assets/yellow-favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
-    </head>
-</body>
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg text-uppercase" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="https://www.linkedin.com/in/jiro-magracia-12636227a/">Jiro Magracia</a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#resume">Resume</a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </body>
 </html>
-<nav class="navbar navbar-expand-lg text-uppercase" id="mainNav">
-  <div class="container">
-    <a class="navbar-brand" href="#page-top">Jiro Magracia</a>
-    <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      Menu
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ms-auto">  <!-- Right-aligned links -->
-        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a></li>
-        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
-        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
-      </ul>
     </div>
   </div>
 </nav>
@@ -50,9 +59,15 @@
                 height: 100%;     /* Full height */
                 border: none;     /* Remove the border */
                 object-fit: cover;/* Ensures the video covers the container */
+                <style>
+  /* FORCE white text in Work section */
+  .work-experience * {
+    color: white !important;
+  }
+</style>
         </style>
         <!-- Video Section -->
-        <section class="video-section">
+        <section class="video-section" id="portfolio">
             <div style="padding:42.1875% 0 0 0;position:relative;">
                 <iframe src="https://player.vimeo.com/video/1058698965?h=552822f103&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Jiro Magracia AnimationReel 2025"></iframe>
             </div>
@@ -62,102 +77,142 @@
 
         <!-- Masthead-->
         <hr class="section-line">
-<!-- CV Section -->
-<section id="cv" class="py-5" style="color: white;">
+        <!-- Resume Section -->
+        <section id="resume" class="py-5" style="color: white; font-family: 'Quicksand', sans-serif;">
     <div class="container">
         <h2 class="text-center text-uppercase mb-4">Resume</h2>
 
         <!-- CV Introduction -->
         <div class="row mb-4">
             <div class="col-lg-12">
-                <p class="lead text-center">A brief overview of my professional journey, skills, and experience.</p>
+                <p class="lead text-center">A brief overview of my experience and education.</p>
             </div>
         </div>
 
-        <section id="work-education-section" class="d-flex">
-            <section id="work-education-section" class="row">
-                <section id="work-education-section" class="row">
-    <!-- Work Experience Section -->
+        <!-- Work and Education -->
+<div class="row" id="work-education-section">
+    <!-- Work Experience (Left Column) -->
     <div class="col-lg-6 work-experience">
         <h2>Work Experience</h2>
         <div class="timeline">
+            <!-- Studio Soi -->
+        <!-- Modified Studio Soi Timeline Item -->
+<div class="timeline-item">
+    <div class="timeline-icon">💼</div>
+    <div class="content">
+        <h3>Character Animator - Studio Soi 
+            <span class="pumuckl-icon" aria-label="Pumuckl"></span>
+        </h3>
+        <p class="timeline-date">April 2025 - PRESENT | Ludwigsburg</p>
+        <p class="timeline-desc">Character animation for the popular movie <em>Pumuckl Und Das Grosse Missverständniss</em>.</p>
+    </div>
+</div>
+            <!-- AnimationsFabrik -->
             <div class="timeline-item">
-                <div class="line"></div>
-                <div class="content">
-                    <h3>Character Animator - Studio Soi</h3>
-                    <p>From April 2025</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="line"></div>
+                <div class="timeline-icon">💼</div>
                 <div class="content">
                     <h3>Character Animator - AnimationsFabrik</h3>
-                    <p>November 2024 - March 2025</p>
+                    <p class="timeline-date">Nov 2024 - Mar 2025 | Hamburg</p>
+                    <p class="timeline-desc">Freelance character animator for commercial projects.</p>
                 </div>
             </div>
+            <!-- Studio Filmbilder -->
             <div class="timeline-item">
-                <div class="line"></div>
+                <div class="timeline-icon">💼</div>
                 <div class="content">
                     <h3>Character Animator - Studio Filmbilder</h3>
-                    <p>November 2024 - March 2025</p>
+                    <p class="timeline-date">Jul 2022 - Sep 2022 | Ludwigsburg</p>
+                    <p class="timeline-desc">Character animation for <em>AnimAnimals Episode Bieber</em>.</p>
                 </div>
             </div>
+            <!-- Bitteschoen.tv -->
             <div class="timeline-item">
-                <div class="line"></div>
+                <div class="timeline-icon">💼</div>
                 <div class="content">
-                    <h3>Character Animator - bitteschoen.tv</h3>
-                    <p>November 2024 - March 2025</p>
+                    <h3>Character Animator & Illustrator - Bitteschoen.tv</h3>
+                    <p class="timeline-date">Sep 2017 - Mar 2018 | Berlin</p>
+                    <p class="timeline-desc">First industry role: 2D animation and illustration for studio projects.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Education Section -->
+    <!-- Education (Right Column) -->
     <div class="col-lg-6 education">
         <h2>Education</h2>
         <div class="timeline">
+            <!-- Animation Mentor -->
             <div class="timeline-item">
-                <div class="line"></div>
+                <div class="timeline-icon">🎓</div>
                 <div class="content">
-                    <h3>Animation Mentor</h3>
-                    <p>Graduated: 2024</p>
+                    <h3>Advanced Studies in 3D Character Animation</h3>
+                    <p class="timeline-meta">Animation Mentor | Sep 2024 - Mar 2025</p>
+                    <ul class="timeline-highlights">
+                        <li>AN03: Mentored by Dreamworks Supervisor <strong>Michael Amos</strong>.</li>
+                        <li>AN04: Acting techniques with Pixar Animator <strong>Shad Bradbury</strong>.</li>
+                    </ul>
                 </div>
             </div>
+            <!-- Filmakademie -->
             <div class="timeline-item">
-                <div class="line"></div>
+                <div class="timeline-icon">🎓</div>
                 <div class="content">
-                    <h3>Diploma Animation - Filmakademie Baden-Württemberg/Animationsinstitut</h3>
-                    <p>Graduated: 2026</p>
+                    <h3>Diploma in Animation</h3>
+                    <p class="timeline-meta">Filmakademie Baden-Württemberg | Sep 2018 - Apr 2024</p>
+                    <ul class="timeline-highlights">
+                        <li>Specialized in 3D Character Animation under <strong>Dan Nguyen (Pixar)</strong> and <strong>Thomas Grummt (Dreamworks)</strong>.</li>
+                        <li>Directed and lead-animated student projects.</li>
+                        <li>Traditional 2D animation training.</li>
+                    </ul>
                 </div>
-    
-</section>
-<hr class="section-line">
-        </header>
-<!-- About Section-->
-<section class="page-section" id="about" style="background-color: #002d00; color: white;">
-    <div class="container">
-        <!-- About Section Heading-->
-        <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
-
-        <!-- Icon Divider -->
-        <div class="divider-custom divider-light">
-            <div class="divider-custom-line"></div> <!-- One long line now -->
-        </div>
-
-        <!-- About Section Content-->
-        <div class="row">
-                    <div class="row">
-            <div class="col-lg-4 ms-auto">
-                <p class="lead">Born and raised in Japan, Italy and Germany! I have love and respect for Animation for as long as I can remember.
-                    I started YouTubing as a kid and gained a big following which motivated me to further study my craft. 
-                    I have completed my studies in Animation at the Filmakademie Animationinstitut in Ludwigsburg, Germany in early 2024 and Animation Mentor in 2025.</p>
             </div>
-            <div class="col-lg-4 me-auto">
-                <p class="lead">I acquired knowledge in 2D Animation, Editing, Directing, Lead Animation and CG Animation. I had the amazing opportunity to have private mentors from studios like Pixar and Dreamworks to work on my 3D Animation craft.
-                    Observing interesting things in life and putting these into my animations and hopefully entertaining each and everyone is my goal!</p>
+            <!-- Hochschule Luzern -->
+            <div class="timeline-item">
+                <div class="timeline-icon">🎓</div>
+                <div class="content">
+                    <h3>Certificate in 3D Animation</h3>
+                    <p class="timeline-meta">Hochschule Luzern (LuMAA) | Jul 2023 - Sep 2023</p>
+                    <ul class="timeline-highlights">
+                        <li>6-week intensive training with mentors from <strong>Dreamworks, Pixar, ILM, and WETA</strong>.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
+</div>
+</div>
+</section>
+    
+</section>  <!-- Close previous section properly -->
+<hr class="section-line">
+
+<!-- About Section -->
+<section class="page-section" id="about" style="background-color: #002d00; color: white;">
+    <div class="container">
+        <!-- About Section Heading -->
+        <h2 class="page-section-heading text-center text-uppercase text-white" 
+            style="font-family: 'Quicksand', sans-serif; font-weight: 600;">
+            About
+        </h2>
+
+        <!-- Icon Divider -->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+        </div>
+
+<!-- About Section Content-->
+<div class="container py-5" id="about-section">
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-lg-5 mx-auto">
+            <p class="lead about-text">Born and raised in Japan, Italy, and Germany! I have loved and respected Animation for as long as I can remember. I started YouTubing as a kid and gained a big following, which motivated me to further study my craft. I completed my studies in Animation at the Filmakademie Animationinstitut in Ludwigsburg, Germany, in early 2024, and Animation Mentor in 2025.</p>
+        </div>
+        <!-- Right Column -->
+        <div class="col-lg-5 mx-auto">
+            <p class="lead about-text">I acquired knowledge in 2D Animation, Editing, Directing, Lead Animation, and CG Animation. I had the amazing opportunity to work with mentors from studios like Pixar and DreamWorks to enhance my 3D Animation skills. My goal is to observe interesting things in life and bring them to life through my animations, entertaining each and every viewer.</p>
+        </div>
+    </div>
+</div>
 </section>
 <section id="section1" style="margin-bottom: 40px;">
     <h2> </h2>

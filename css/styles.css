@@ -93,7 +93,7 @@
 
 body {
   margin: 0;
-  font-family: var(--bs-body-font-family);
+  font-family: 'Quicksand', sans-serif !important;
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
@@ -3728,6 +3728,7 @@ textarea.form-control-lg {
 }
 
 .navbar {
+    font-family: 'Quicksand', sans-serif !important; /* Force font-family */
   --bs-navbar-padding-x: 0;
   --bs-navbar-padding-y: 0.5rem;
   --bs-navbar-color: rgba(0, 0, 0, 0.55);
@@ -3771,6 +3772,7 @@ textarea.form-control-lg {
   padding-top: var(--bs-navbar-brand-padding-y);
   padding-bottom: var(--bs-navbar-brand-padding-y);
   margin-right: var(--bs-navbar-brand-margin-end);
+  font-family: 'Pacifico', cursive;
   font-size: var(--bs-navbar-brand-font-size);
   color: var(--bs-navbar-brand-color);
   text-decoration: none;
@@ -10915,7 +10917,7 @@ html::before {
 #mainNav {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: 'Quicksand', sans-serif !important;
   font-weight: 700;
 }
 #mainNav .navbar-brand {
@@ -11088,7 +11090,6 @@ body::before {
   background-position: center center;
   background-size: cover;
   background-attachment: fixed; /* Optional: keeps the background fixed while scrolling */
-  filter: blur(10px); /* Adjust blur intensity */
   z-index: -1; /* Ensure the blurred background is behind the content */
 }
 
@@ -11117,135 +11118,266 @@ body {
   margin: 40px 0; /* Space above and below the line */
 }
 /* Container holding the two sections */
+/* Work and Education section container */
+
+
+/* ===== GENERAL TIMELINE LAYOUT ===== */
 #work-education-section {
-  display: flex; /* Align items horizontally */
-  justify-content: space-between; /* Space between sections */
-  gap: 20px; /* Space between the two sections */
-  flex-wrap: wrap; /* Wrap if the screen is too small */
-  padding: 50px 20px;
+  display: flex;
+  gap: 30px; /* Space between columns */
 }
 
-/* Ensure sections take up 50% width on large screens */
 .work-experience, .education {
-  width: 100%; /* Default to 100% for smaller screens */
-  flex: 1 1 48%; /* Flex: grow, shrink, and take 48% width */
+  flex: 1; /* Equal width for both columns */
+  font-family: 'Quicksand', sans-serif;
 }
 
-/* Container holding the two sections */
-#work-education-section {
-  display: flex; /* Align items horizontally */
-  justify-content: space-between; /* Space between sections */
-  gap: 20px; /* Space between the two sections */
-  flex-wrap: wrap; /* Wrap if the screen is too small */
-  padding: 50px 20px;
-}
-
-/* Ensure sections take up 50% width on large screens */
-.work-experience, .education {
-  width: 100%; /* Default to 100% for smaller screens */
-  flex: 1 1 48%; /* Flex: grow, shrink, and take 48% width */
-}
-
-/* Container holding the two sections */
-#work-education-section {
-  display: flex; /* Align items horizontally */
-  justify-content: space-between; /* Space between sections */
-  gap: 20px; /* Space between the two sections */
-  flex-wrap: wrap; /* Wrap if the screen is too small */
-  padding: 50px 20px;
-}
-
-/* Container holding the two sections */
-#work-education-section {
-  display: flex; /* Align items horizontally */
-  justify-content: space-between; /* Space between sections */
-  gap: 20px; /* Space between the two sections */
-  flex-wrap: wrap; /* Wrap if the screen is too small */
-  padding: 50px 20px;
-}
-
-/* Container holding the two sections */
-#work-education-section {
-  display: flex; /* Align items horizontally */
-  justify-content: space-between; /* Space between sections */
-  gap: 20px; /* Space between the two sections */
-  flex-wrap: wrap; /* Wrap if the screen is too small */
-  padding: 50px 20px;
-}
-
-/* Work Experience and Education Section Styles */
-h2 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
+/* ===== TIMELINE STYLING (BOTH SECTIONS) ===== */
 .timeline {
   position: relative;
+  padding-left: 50px; /* Space for the timeline line */
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 25px;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: linear-gradient(to bottom, #f39c12, #3498db); /* Gradient line */
 }
 
 .timeline-item {
-  display: flex;
-  justify-content: flex-start;
-  margin: 20px 0;
   position: relative;
-  cursor: pointer; /* Add cursor pointer to indicate interactivity */
+  margin-bottom: 30px;
 }
 
-.line {
-  width: 4px;
-  background-color: white; /* Make the line white */
+.timeline-icon {
   position: absolute;
-  right: 0; /* Position the line on the right */
+  left: -50px;
   top: 0;
-  bottom: 0;
-  z-index: 0;
-  opacity: 0.3; /* Make the line less visible by default */
-  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for opacity and scale */
-}
-
-.timeline-item:hover .line {
-  opacity: 1; /* Highlight line when hovering */
-  transform: scaleY(1.1); /* Slightly scale the line for a highlighting effect */
-}
-
-/* Content area */
-.content {
-  padding-left: 40px; /* Create space for the line */
-  padding-right: 30px;
-  background-color: #f9f9f9;
-  border-radius: 6px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 0 0 4px rgba(243, 156, 18, 0.2);
   z-index: 1;
 }
 
-.content h3 {
-  margin: 0;
-  font-size: 1.2rem;
+.content {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  /* Improved text rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* Transition effects */
+  transition: all 0.3s ease;
+}
+
+.content:hover {
+  background: rgba(243, 156, 18, 0.2);
+  transform: translateY(-5px);
+  /* Ensure text stays crisp on hover */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* ===== TEXT STYLING - APPLIES TO BOTH SECTIONS ===== */
+.timeline-item .content h3,
+.timeline-item .content p,
+.timeline-date,
+.timeline-desc,
+.timeline-highlights,
+.timeline-highlights li {
+  color: white !important;
+}
+
+.timeline-date {
+  color: #f39c12 !important;
+  font-weight: 600;
+}
+
+.timeline-desc {
+  font-size: 0.9rem;
+  margin-top: 8px;
+  opacity: 0.9;
+  font-style: italic;
+}
+
+/* ===== TIMELINE HIGHLIGHTS ===== */
+.timeline-highlights {
+  margin-top: 10px;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.timeline-highlights li {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.timeline-highlights strong {
+  color: #f39c12;
+  font-weight: 600;
+}
+
+.timeline-meta {
+  color: #f39c12 !important;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* ===== HEADINGS ===== */
+#work-education-section h2 {
+  font-size: 1.5rem;
   font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+  color: white;
+}
+/* ===== SECTION BACKGROUNDS ===== */
+.work-experience .content,
+.education .content {
+  background: rgba(30, 30, 30, 0.85) !important; /* Dark semi-transparent */
+  border-left: 3px solid #f39c12; /* Accent bar */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.content p {
-  margin-top: 5px;
-  color: #777;
+/* Differentiate education with blue tint */
+.education .content {
+  background: rgba(25, 40, 60, 0.85) !important;
+  border-left-color: #3498db;
+}
+.work-experience .content {
+  background-image: 
+    linear-gradient(rgba(0, 180, 216, 0.03), rgba(0, 180, 216, 0.03));
 }
 
-/* Responsive: If the screen size is smaller, the sections stack */
+.education .content {
+  background-image: 
+    linear-gradient(rgba(214, 158, 0, 0.03), rgba(214, 158, 0, 0.03));
+}
+
+/* Hover effects */
+.content:hover {
+  background: rgba(40, 40, 40, 0.9) !important;
+  transform: translateY(-3px);
+}
+
+/* Ensure text contrast */
+.timeline-item .content * {
+  color: white !important;
+}
+
+/* ===== EDUCATION TWEAKS ===== */
+.education .content {
+  background: rgba(52, 152, 219, 0.1); /* Slight blue tint */
+}
+
+.education .content:hover {
+  background: rgba(52, 152, 219, 0.2);
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
 @media (max-width: 768px) {
   #work-education-section {
     flex-direction: column;
   }
-
-  .work-experience, .education {
-    width: 100%; /* Full width for small screens */
+  .timeline::before {
+    left: 15px; /* Adjust line position for mobile */
   }
-
-  .line {
-    right: 0; /* Keep the line on the right on small screens as well */
+  .timeline-icon {
+    left: -40px;
+    width: 30px;
+    height: 30px;
   }
+}
 
+
+/* ===== GUARANTEED ABOUT HEADING STYLE ===== */
+section#about h2.page-section-heading.text-uppercase.text-white {
+    font-family: 'Quicksand', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    /* Inherits text-align/color from existing classes */
+}
+
+/* Lead Text in About Section */
+#about .lead {
+  font-family: 'Quicksand', sans-serif !important;
+  font-size: 1rem;
+  color: white;
+  line-height: 1.6; /* Make text a bit more readable */
+}
+
+/* === FORCE BACKGROUND COLORS === */
+#work-education-section .work-experience .content {
+  background: rgba(0, 50, 60, 0.9) !important;
+  border-left-color: #00b4d8 !important;
+  background-image: linear-gradient(rgba(0,180,216,0.03), rgba(0,180,216,0.03)) !important;
+}
+
+#work-education-section .education .content {
+  background: rgba(250, 240, 230, 0.95) !important;
+  border-left-color: #ff9e00 !important;
+  background-image: linear-gradient(rgba(214,158,0,0.03), rgba(214,158,0,0.03)) !important;
+}
+
+/* Force text colors */
+#work-education-section .work-experience .content * {
+  color: #e0f2fe !important;
+}
+#work-education-section .education .content * {
+  color: #333 !important;
+}
+/* NUCLEAR OPTION - FORCE QUICKSAND EVERYWHERE */
+* {
+  font-family: 'Quicksand', sans-serif !important;
+}
+/* Base font scaling */
+html {
+  font-size: 16px;
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  #about h2.page-section-heading {
+    font-size: 1.8rem !important;
+  }
+}
+/* Fix your timeline on mobile */
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 30px;
+  }
+  .timeline::before {
+    left: 15px;
+  }
+  .timeline-icon {
+    left: -35px;
+    width: 30px;
+    height: 30px;
+  }
   .content {
-    padding-left: 20px; /* Less padding when stacked */
+    padding: 15px;
   }
+}
+@media (max-width: 768px) {
+  #work-education-section {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+}
 }
