@@ -99,8 +99,44 @@ body {
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
-  height: 100vh; /* Full viewport height */
-  background-color: transparent; /* Remove any background color from the body */
+  min-height: 100vh;
+  background-color: transparent;
+  
+  /* Background image scaling */
+  background-image: url('assets/images/your-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* Better for mobile performance */
+  
+  /* Smooth scaling */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  body {
+    /* Adjust font sizes for mobile */
+    --bs-body-font-size: 0.9rem;
+    line-height: 1.5;
+    
+    /* Optimize background for mobile */
+    background-attachment: scroll;
+    background-position: top center; /* Better for tall mobile screens */
+    
+    /* Prevent horizontal overflow */
+    overflow-x: hidden;
+    width: 100vw;
+  }
+  
+  /* Optional: Use smaller background image for mobile */
+  @media (max-resolution: 150dpi) and (max-width: 768px) {
+    body {
+      background-image: url('assets/images/your-bg-mobile.jpg');
+    }
+  }
 }
 }
 }
@@ -11378,6 +11414,21 @@ html {
     flex-direction: column;
     gap: 20px;
   }
+}
+/* Minimum tap target size */
+a, button, .timeline-item {
+  min-height: 48px;
+  min-width: 48px;
+}
+@media (max-width: 992px) {
+  .navbar-collapse {
+    background: #002d00;
+    padding: 20px;
+  }
+}
+img {
+  max-width: 100%;
+  height: auto;
 }
 }
 }
