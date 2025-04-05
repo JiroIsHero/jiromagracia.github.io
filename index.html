@@ -72,9 +72,42 @@
 <!-- Video Section -->
 <section id="portfolio" class="py-3" style="color: white; font-family: 'Quicksand', sans-serif;">
     <div class="container">
-        <h2 class="text-center text-uppercase mb-2">Jiro Magracia Demoreel</h2>
-        <p class="lead text-center mb-3">My Animation Reel Spring 2025</p>
-        
+<!-- Fixed centered heading with animation -->
+<div class="text-center">
+    <h2 class="text-uppercase mb-2 animate-fade-in" style="opacity:0;">
+      Jiro Magracia Demoreel
+    </h2>
+    <p class="lead mb-3 animate-fade-in" style="opacity:0; animation-delay:0.3s;">
+      My Animation Reel Spring 2025
+    </p>
+  </div>
+  
+  <style>
+    /* Animation CSS */
+    .animate-fade-in {
+      animation: fadeInUp 1s ease-out forwards;
+      transform: translateY(20px);
+    }
+    
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+  
+  <script>
+    // Optional: Trigger animations when visible
+    document.addEventListener('DOMContentLoaded', function() {
+      const elements = document.querySelectorAll('.animate-fade-in');
+      elements.forEach(el => el.style.opacity = '0');
+      
+      setTimeout(() => {
+        elements.forEach(el => el.style.opacity = '');
+      }, 100);
+    });
+  </script>
         <div class="ratio ratio-16x9"> <!-- Bootstrap responsive ratio -->
             <iframe src="https://player.vimeo.com/video/1058698965?h=552822f103" 
                     frameborder="0" 
