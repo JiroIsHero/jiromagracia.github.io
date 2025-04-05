@@ -11408,14 +11408,38 @@ img {
   max-width: 100%;
   height: auto;
 }
-/* About Section Box - Now matches Education section */
+/* About Section - Matching Education Section */
+#about {
+  background-color: #ftr !important;
+}
+
 .content-box.about-box {
   padding: 40px;
-  background: rgba(30, 30, 30, 0.85); /* Dark gray like Education section */
-  border-left: 3px solid #f39c12; /* Orange accent like Work section */
+  background: rgba(250, 240, 230, 0.95) !important;
+  border-left: 3px solid #ff9e00 !important;
+  background-image: linear-gradient(rgba(214,158,0,0.03), rgba(214,158,0,0.03)) !important;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
+}
+
+.content-box.about-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.about-text {
+  color: #333 !important;
+  line-height: 1.7;
+  font-size: 1.1rem;
+
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .content-box.about-box {
+      padding: 25px;
+  }
 }
 
 .content-box.about-box:hover {
@@ -11437,6 +11461,17 @@ img {
   .about-text {
       font-size: 1rem;
   }
+/* Video Section */
+#portfolio {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.video-container {
+  margin-top: 1.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 }
 }
