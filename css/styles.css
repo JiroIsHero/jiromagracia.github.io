@@ -10820,43 +10820,53 @@ footer.footer {
   visibility: hidden;
 }
 
-/* Social Links Container */
+/* ===== Social Icons - FORCED UPDATE ===== */
 .footer-item .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 40px; /* Increased from 20px to 40px */
-    margin-top: 20px; /* Added more top margin */
-    margin-bottom: 10px;
-    padding: 15px 0; /* Added vertical padding */
+  display: flex !important;
+  justify-content: center !important;
+  gap: 50px !important; /* Massive spacing */
+  margin: 30px 0 !important;
 }
 
-/* Social Icons */
 .footer-item .social-link {
-    color: white !important;
-    font-size: 2.2rem !important; /* Increased from 1.5rem */
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px; /* Fixed width */
-    height: 60px; /* Fixed height */
+  color: #ff9e00 !important; /* Orange by default */
+  font-size: 2.5rem !important; /* Very large */
+  width: 60px !important;
+  height: 60px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+}
+
+/* Hover effects */
+.footer-item .social-link:hover {
+  transform: translateY(-5px) scale(1.2) !important;
+  text-shadow: 0 0 15px rgba(255, 158, 0, 0.5);
+}
+
+/* Magnet icon stays unchanged */
+.footer-icon-container i.fa-magnet {
+  color: #ff9e00 !important;
+  font-size: 2rem !important;
 }
 
 /* Hover Effects */
 .footer-item .social-link:hover {
-    color: #ff9e00 !important;
-    transform: translateY(-5px) scale(1.1); /* Enhanced hover effect */
-    text-decoration: none;
+  transform: translateY(-5px) scale(1.15);
 }
 
-/* Icon Styling */
-.footer-item .social-links .fab,
-.footer-item .social-links .fas {
-    color: inherit !important;
-    transition: inherit;
-    line-height: 1;
+/* Platform-specific hover colors */
+.footer-item .social-link:hover .fa-linkedin-in { 
+  color: #0a66c2 !important; /* LinkedIn blue */
 }
-
+.footer-item .social-link:hover .fa-instagram { 
+  color: #e1306c !important; /* Instagram pink */ 
+}
+.footer-item .social-link:hover .fa-envelope { 
+  color: #ff9e00 !important; /* Your brand orange */
+}
 /* Magnet Icon Above */
 .footer-icon-container {
     margin-bottom: 25px !important; /* Increased spacing */
@@ -10995,6 +11005,25 @@ body::before {
 section, .masthead, .about, .portfolio, .contact,
 body, .page-wrapper, .container, .content {
   background: transparent !important;
+}
+/* Make contact item clickable while keeping styles */
+.contact-item {
+  display: flex !important; /* Maintain your flex layout */
+  text-decoration: none !important; /* Remove underline */
+  color: inherit !important; /* Inherit text colors */
+  transition: all 0.3s ease !important;
+}
+
+/* Hover effects for contact item */
+.contact-item:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+  background: rgba(0, 0, 0, 0.9) !important;
+}
+
+/* Ensure child elements don't affect pointer events */
+.contact-item > * {
+  pointer-events: none; /* Makes entire area clickable */
 }
 body {
   background: url("https://raw.githubusercontent.com/JiroIsHero/jiromagracia.github.io/main/assets/img/background.jpg") no-repeat center center fixed;
@@ -11358,7 +11387,7 @@ footer.footer {
   padding: 60px 0 30px !important;
   position: relative;
   z-index: 1;
-  backdrop-filter: blur(5px);
+
 }
 
 /* Footer items - matching work section cards */
@@ -11433,4 +11462,141 @@ footer.footer {
   margin: 3rem auto; /* Centered with vertical spacing */
   background: rgba(255, 158, 0, 0.3); /* Orange at 30% opacity */
   border: 0; /* Resets any default border */
+}
+/* Handwritten name base style */
+.navbar-brand .handwritten-name {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  font-size: 1.7rem;
+  display: inline-block;
+  transform: translateY(2px);
+}
+
+/* Orange first name */
+.navbar-brand .handwritten-orange {
+  color: #ff9e00;
+}
+
+/* White last name */
+.navbar-brand .handwritten-white {
+  color: white;
+  margin-left: 2px;
+}
+
+/* LinkedIn icon */
+.navbar-brand .brand-icon {
+  margin-left: 8px;
+  font-size: 1.2rem;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand .brand-icon:hover {
+  color: #0a66c2;
+  transform: scale(1.1);
+}
+/* ===== Caveat Font Name Styles ===== */
+.navbar-brand .caveat-orange,
+.navbar-brand .caveat-white {
+    font-family: 'Caveat', cursive !important;
+    font-weight: 700;
+    display: inline-block;
+    letter-spacing: 0.5px;
+}
+
+/* Orange first name */
+.navbar-brand .caveat-orange {
+    color: #ff9e00 !important;
+    font-size: 2rem; /* Slightly larger for emphasis */
+}
+
+/* White last name */
+.navbar-brand .caveat-white {
+    color: white !important;
+    font-size: 1.8rem; /* Slightly smaller than first name */
+    margin-left: 5px;
+}
+
+/* LinkedIn icon */
+.navbar-brand .brand-icon {
+    font-size: 1.3rem;
+    color: white !important;
+    margin-left: 12px;
+    vertical-align: middle;
+    transition: all 0.3s ease;
+    position: relative;
+    top: -2px; /* Fine-tuned alignment */
+}
+
+.navbar-brand .brand-icon:hover {
+    color: #0a66c2 !important;
+    transform: scale(1.1);
+}
+/* ===== Compact & Perfectly Aligned Version ===== */
+/* Main container adjustments */
+.footer-item.connect-item {
+  /* Identical visual properties */
+  background: rgba(30, 30, 30, 0.95) !important;
+  padding: 23px !important;
+  border-left: 3px solid #ff9e00 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+  height: 100%;
+  transition: all 0.3s ease;
+  
+  /* Modified flex structure */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Changed from space-between */
+}
+
+/* Magnet icon alignment - Tighter padding */
+.connect-item .footer-icon-container {
+  flex: 0 0 auto;
+  padding-top: 15px; /* Reduced from 18px */
+  text-align: center;
+}
+
+/* Connect heading - Tighter margin */
+.connect-item h4 {
+  margin: 8px 0 !important; /* Reduced from 10px */
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+/* Social links container - Minimal bottom margin */
+.enhanced-social {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 24px !important;
+  margin: 0 auto 8px !important; /* Reduced from 12px */
+  padding: 0 !important;
+  flex: 0 0 auto;
+}
+
+/* Social icons - Smaller version */
+.enhanced-social .social-icon {
+  color: #ff9e00 !important;
+  font-size: 1.4rem !important; /* Slightly smaller */
+  width: 38px !important; /* Slightly narrower */
+  height: 38px !important; /* Slightly shorter */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Hover effects */
+.enhanced-social .social-icon:hover {
+  transform: scale(1.1) !important;
+  filter: brightness(1.1) !important;
+}
+
+/* Ensure all footer items match */
+.footer .col-lg-4 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 0;
+  padding-bottom: 15px; /* Added to match other boxes */
 }
