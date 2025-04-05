@@ -11624,3 +11624,32 @@ footer.footer {
     padding-right: 15px;
   }
 }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Accounts for fixed navbar */
+}
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-subtitle {
+  animation: fadeInUp 1s ease-out;
+}
+/* Add this to your stylesheet to override any blocking */
+.contact-email-link {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+/* If using Bootstrap */
+a.contact-email-link {
+  display: block !important;
+}
