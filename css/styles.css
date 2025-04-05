@@ -90,41 +90,35 @@ body {
   color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
   min-height: 100vh;
-  background-color: transparent;
-  
-  /* Background image scaling */
-  background-image: url('assets/images/your-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: scroll; /* Better for mobile performance */
-  
-  /* Smooth scaling */
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-}
-
-/* Mobile-specific adjustments */
-@media (max-width: 768px) {
   body {
-    /* Adjust font sizes for mobile */
-    --bs-body-font-size: 0.9rem;
-    line-height: 1.5;
-    
-    /* Optimize background for mobile */
+    /* ... keep all your existing NON-BACKGROUND styles ... */
+    /* Only replace background-related properties below */
+    background-color: #000; /* Changed from transparent */
+    background-image: url('https://raw.githubusercontent.com/JiroIsHero/jiromagracia.github.io/main/assets/img/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     background-attachment: scroll;
-    background-position: top center; /* Better for tall mobile screens */
     
-    /* Prevent horizontal overflow */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    
     overflow-x: hidden;
-    width: 100vw;
+    width: 100%; /* Changed from 100vw */
   }
   
-  /* Optional: Use smaller background image for mobile */
-  @media (max-resolution: 150dpi) and (max-width: 768px) {
+  @media (max-width: 768px) {
     body {
-      background-image: url('assets/images/your-bg-mobile.jpg');
+      /* ... keep your font/text adjustments ... */
+      background-position: center 30%; /* Changed from top center */
+    }
+  }
+  
+  /* NEW: Tablet optimization */
+  @media (max-width: 992px) and (orientation: portrait) {
+    body {
+      background-position: center 25%;
     }
   }
 }
@@ -11359,32 +11353,17 @@ img {
 }
 /* ===== Footer Styles ===== */
 footer.footer {
-  background-color: transparent !important; /* Dark semi-transparent like work section */
-  color: white !important;
-  padding: 60px 0 30px !important;
-  position: relative;
-  z-index: 1;
-  backdrop-filter: blur(5px); /* Optional: adds blur effect like work section */
-}
-
-/* ===== Footer Styles ===== */
-footer.footer {
-  background-color: transparent !important; /* Transparent background */
-  color: white !important;
-  padding: 60px 0 30px !important;
-  position: relative;
-  z-index: 1;
-  backdrop-filter: blur(5px); /* Optional: adds blur effect like work section */
-}
-
-/* Footer container */
-.footer .container {
   background-color: transparent !important;
+  color: white !important;
+  padding: 60px 0 30px !important;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(5px);
 }
 
 /* Footer items - matching work section cards */
 .footer .footer-item {
-  background: rgba(30, 30, 30, 0.95) !important; /* Missing semicolon added */
+  background: rgba(30, 30, 30, 0.95) !important;
   padding: 25px !important;
   border-left: 3px solid #ff9e00 !important;
   border-radius: 8px !important;
@@ -11392,7 +11371,50 @@ footer.footer {
   height: 100%;
   transition: all 0.3s ease;
 }
+/* ===== Mobile Optimization ===== */
+@media (max-width: 768px) {
+  footer.footer {
+    padding: 30px 0 20px !important; /* Reduced padding */
+  }
 
+  .footer .footer-item {
+    padding: 15px !important; /* More compact */
+    margin-bottom: 15px; /* Space between stacked items */
+  }
+
+  /* Adjust Connect section specifically */
+  .footer .col-lg-4:nth-child(2) .footer-item {
+    padding: 20px 15px !important;
+  }
+
+  /* Social icons */
+  .social-links {
+    gap: 12px !important; /* Tighter spacing */
+  }
+
+  /* Text sizes */
+  .footer-item h4 {
+    font-size: 1rem !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .footer-item p {
+    font-size: 0.85rem !important;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 576px) {
+  .footer .row {
+    flex-direction: column; /* Stack vertically */
+  }
+  
+  .footer .col-lg-4 {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px !important;
+  }
+}
 /* Fix Connect header alignment */
 .footer .col-lg-4:nth-child(2) .footer-item {
   display: flex;
@@ -11404,4 +11426,11 @@ footer.footer {
 .footer .footer-item.connect,
 .footer .footer-item.contact {
   background: rgba(30, 30, 30, 0.85) !important;
+}
+.half-line-divider {
+  height: 3px;
+  width: 50%; /* Half the container width */
+  margin: 3rem auto; /* Centered with vertical spacing */
+  background: rgba(255, 158, 0, 0.3); /* Orange at 30% opacity */
+  border: 0; /* Resets any default border */
 }
