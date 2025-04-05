@@ -11600,3 +11600,27 @@ footer.footer {
   padding-top: 0;
   padding-bottom: 15px; /* Added to match other boxes */
 }
+/* ===== Mobile Optimizations ===== */
+@media (max-width: 576px) {
+  /* Force full-width portfolio cards */
+  .portfolio-card {
+    min-width: 100% !important;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Improve text readability */
+  body {
+    font-size: 1.1rem;
+  }
+  
+  /* Smoother mobile menu animation */
+  .navbar-collapse {
+    transition: height 0.3s ease-out;
+  }
+  
+  /* Optional: Better padding for mobile */
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
