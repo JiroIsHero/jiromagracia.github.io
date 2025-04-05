@@ -3755,7 +3755,7 @@ textarea.form-control-lg {
   left: 0;
   width: 100%;
   z-index: 9999;
-  background-color: rgba(0, 0, 0, 0.85) !important; /* Matches footer */
+  background-color: rgba(30, 30, 30, 0.95) !important; /* Matches footer */
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 15px rgba(0,0,0,0.3);
   padding: 0.5rem 0;
@@ -10788,7 +10788,7 @@ footer.footer {
 
 /* Footer items - matching work section cards */
 .footer .footer-item {
-  background: rgba(40, 40, 40, 0.9) !important;
+  background: rgba(30, 30, 30, 0.95) !important;
   padding: 25px !important;
   border-left: 3px solid #ff9e00 !important;
   border-radius: 8px !important;
@@ -11454,7 +11454,7 @@ footer.footer {
 .footer .footer-item.location,
 .footer .footer-item.connect,
 .footer .footer-item.contact {
-  background: rgba(30, 30, 30, 0.85) !important;
+  background: rgba(30, 30, 30, 0.95) !important;
 }
 .half-line-divider {
   height: 3px;
