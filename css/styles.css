@@ -1,15 +1,5 @@
 @charset "UTF-8";
-/*!
-* Start Bootstrap - Freelancer v7.0.7 (https://startbootstrap.com/theme/freelancer)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-freelancer/blob/master/LICENSE)
-*/
-/*!
- * Bootstrap  v5.2.3 (https://getbootstrap.com/)
- * Copyright 2011-2022 The Bootstrap Authors
- * Copyright 2011-2022 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600;700&display=swap');
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -3763,74 +3753,148 @@ textarea.form-control-lg {
   display: block;
 }
 
-/* Navbar CSS */
+/* Navbar Base - Matches Footer Box Background */
 .navbar {
   font-family: 'Quicksand', sans-serif;
-  --bs-navbar-padding-x: 0;
-  --bs-navbar-padding-y: 0.5rem;
-  --bs-navbar-color: rgba(51, 51, 51, 0.9);
-  --bs-navbar-hover-color: #f39c12;
-  --bs-navbar-disabled-color: rgba(51, 51, 51, 0.3);
-  --bs-navbar-active-color: #f39c12;
-  --bs-navbar-brand-color: #333;
-  --bs-navbar-brand-hover-color: #f39c12;
-  --bs-navbar-toggler-border-color: rgba(51, 51, 51, 0.1);
-  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23333' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 9999;
-  background-color: rgba(250, 240, 230, 0.95) !important;
-  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.85) !important; /* Matches footer */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
 }
 
+.navbar:hover {
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+/* Brand Styling - White Text */
 .navbar-brand {
-  font-family: 'Quicksand', cursive;
+  display: flex;
+  align-items: center;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
+  color: white !important; /* White text */
+  transition: all 0.3s ease;
 }
 
-.navbar-toggler {
-  border-color: var(--bs-navbar-toggler-border-color);
+.name-highlight {
+  font-family: 'Dancing Script', cursive; /* Cursive font */
+  font-weight: 700;
+  color: #ff9e00; /* Orange text color */
+  padding: 0 5px;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px rgba(255, 158, 0, 0.3); /* Soft glow effect */
 }
 
-.navbar-nav {
-  --bs-nav-link-padding-x: 1rem;
-  --bs-nav-link-padding-y: 0.5rem;
-  --bs-nav-link-font-weight: 600;
+.navbar-brand:hover .name-highlight {
+  color: #ffbf5e; /* Lighter orange on hover */
+  text-shadow: 0 0 15px rgba(255, 158, 0, 0.5); /* Stronger glow on hover */
 }
 
+.brand-icon {
+  color: white !important; /* White icon */
+  margin-left: 10px;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover .brand-icon {
+  color: #ff9e00 !important; /* Orange on hover */
+  transform: scale(1.1);
+}
+
+/* Navigation Links - White Text */
 .nav-link {
-  color: #333;
+  color: white !important; /* White text */
+  font-weight: 600;
+  position: relative;
+  margin: 0 0.5rem;
+  padding: 0.5rem 0 !important;
 }
 
-/* Mobile Menu Styles */
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ff9e00; /* Orange underline */
+  transition: width 0.3s ease;
+}
+
+.hover-underline:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: #ff9e00 !important; /* Orange on hover */
+}
+
+/* Active Link */
+.nav-link.active {
+  color: #ff9e00 !important; /* Orange for active */
+}
+
+.nav-link.active::after {
+  width: 100% !important;
+}
+
+/* Mobile Menu - Ivory Background */
 @media (max-width: 992px) {
-  .navbar-collapse {
-    background-color: #333; /* Dark background for mobile menu */
-    padding: 1rem;
-    margin-top: 0.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
-  
-  .nav-item {
-    margin: 0.5rem 0;
-  }
-  
-  .nav-link {
-    color: white !important; /* White text for mobile menu */
+  .navbar {
     padding: 0.5rem 1rem;
   }
   
+  .navbar-collapse {
+    background-color: #FFF8F0 !important; /* Ivory background */
+    padding: 1.5rem;
+    margin-top: 0.75rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  }
+  
+  .nav-item {
+    margin: 0.75rem 0;
+  }
+  
+  .nav-link {
+    color: #333 !important; /* Dark text for contrast on ivory */
+    padding: 0.75rem 1.25rem !important;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+  
   .nav-link:hover {
-    color: #f39c12 !important;
+    background-color: rgba(0,0,0,0.05);
+    color: #ff9e00 !important; /* Orange on hover */
+  }
+  
+  .hover-underline::after {
+    display: none;
   }
 }
 
-.navbar-expand-lg .navbar-nav {
-  flex-direction: row;
+/* Toggler Icon - White for dark navbar */
+.navbar-toggler {
+  border: none;
+  padding: 0.5rem;
+  color: white !important; /* White toggler icon */
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(255, 158, 0, 0.3); /* Orange focus ring */
 }
 .card > hr {
   margin-right: 0;
@@ -10708,15 +10772,126 @@ html::before {
   }
 }
 
-.footer {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  background-color: rgba(0, 0, 0, 0.5); /* Black with 50% transparency */
-  color: #fff;
+/* ===== Footer Styles ===== */
+footer.footer {
+  background-color: transparent !important; /* Make the overall footer background transparent */
+  color: white !important;
+  padding: 60px 0 30px !important;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(5px); /* Optional: adds blur effect like work section */
 }
 
-.copyright {
-  background-color: #1a252f;
+/* Footer container */
+.footer .container {
+  background-color: transparent !important;
+}
+
+/* Footer items - matching work section cards */
+.footer .footer-item {
+  background: rgba(40, 40, 40, 0.9) !important;
+  padding: 25px !important;
+  border-left: 3px solid #ff9e00 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+/* Footer item hover animation */
+.footer .footer-item:hover {
+  transform: translateY(-5px); /* Elevates the footer item */
+  background: rgba(50, 50, 50, 0.95) !important; /* Slightly lighter background on hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important; /* Enhanced shadow on hover */
+}
+
+/* Fix Connect header alignment */
+.footer .col-lg-4:nth-child(2) .footer-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Create invisible space to match icon height */
+.footer .col-lg-4:nth-child(2) .footer-item h4.text-uppercase::before {
+  content: "";
+  display: block;
+  height: 40px; /* Same as icon container */
+  margin-bottom: 15px; /* Same as icon container's margin */
+  visibility: hidden;
+}
+
+/* Social Links Container */
+.footer-item .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+/* Social Icons - White by default */
+.footer-item .social-link {
+  color: white !important; /* Changed to white */
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+/* Social Icons - Orange on hover */
+.footer-item .social-link:hover {
+  color: #ff9e00 !important; /* Orange on hover */
+  transform: translateY(-3px);
+}
+
+/* Direct icon targeting (if needed) */
+.footer-item .social-links .fab,
+.footer-item .social-links .fas {
+  color: inherit !important; /* Inherits white color */
+}
+/* Hover Effects */
+.footer .social-link:hover {
+  color: #ffcc73;
+  transform: translateY(-3px);
+  text-decoration: none; /* Prevents underline on hover */
+}
+
+/* Ensure all icons have same visual weight */
+.footer .fab,
+.footer .fas,
+.footer .footer-icon {
+  line-height: 1; /* Fixes vertical alignment */
+  width: 1em; /* Ensures consistent width */
+}
+
+/* Text content */
+.footer p {
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-align: center !important;
+  margin-bottom: 0 !important;
+}
+
+/* Copyright */
+.footer .copyright {
+  margin-top: 50px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 0 20px !important;
+  }
+  
+  .footer .footer-item {
+    padding: 20px !important;
+    margin-bottom: 20px;
+  }
+  
+  /* Reset Connect header alignment on mobile */
+  .footer .col-lg-4:nth-child(2) .footer-item h4.text-uppercase::before {
+    display: none;
+  }
+}
+
 }
 margin: 0;
 font-family: var(--bs-body-font-family);
@@ -10743,16 +10918,77 @@ body::before {
   background-attachment: fixed; /* Optional: keeps the background fixed while scrolling */
   z-index: -1; /* Ensure the blurred background is behind the content */
 }
+/* Footer Container Structure */
+.footer .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
 
-/* Make sure body takes up full height */
-body {
+/* Columns */
+.footer .col-lg-4 {
+  padding: 10px;
+  display: flex;
+}
+
+/* Footer Items - More Compact Height */
+.footer .footer-item {
+  background: rgba(0, 0, 0, 0.85);
+  padding: 20px; /* Reduced padding */
+  border-left: 3px solid #ff9e00;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  
+  /* Flex layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  
+  /* Adjusted height control */
+  min-height: 180px; /* Reduced from 250px */
+  justify-content: center;
+}
+
+/* Icon Alignment */
+.footer-item .footer-icon-container {
+  color: #ff9e00;
+  font-size: 1.5rem; /* Slightly smaller icon */
+  margin-bottom: 12px; /* Reduced spacing */
+  height: 32px; /* Smaller fixed height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Text Elements */
+.footer-item h4 {
+  color: white;
+  text-transform: uppercase;
+  margin: 0 0 10px 0; /* Reduced spacing */
+  font-size: 1rem; /* Slightly smaller */
+  width: 100%;
+}
+
+.footer-item p {
+  color: #e0f2fe;
   margin: 0;
-  position: relative; /* To work with z-index of ::before */
-  z-index: 1; /* Ensures content stays on top of the blurred background */
+  font-size: 0.9rem; /* Slightly smaller */
+  line-height: 1.4; /* Tighter line height */
+  width: 100%;
+  padding: 0 5px; /* Small side padding if needed */
 }
-section, .masthead, .about, .portfolio, .contact {
-  background: transparent !important;
+
+/* Hover effect */
+.footer .footer-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
+
+/* Keep existing background fixes */
+section, .masthead, .about, .portfolio, .contact,
 body, .page-wrapper, .container, .content {
   background: transparent !important;
 }
@@ -11111,4 +11347,51 @@ img {
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 }
+/* ===== Footer Styles ===== */
+footer.footer {
+  background-color: transparent !important; /* Dark semi-transparent like work section */
+  color: white !important;
+  padding: 60px 0 30px !important;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(5px); /* Optional: adds blur effect like work section */
+}
+
+/* ===== Footer Styles ===== */
+footer.footer {
+  background-color: transparent !important; /* Transparent background */
+  color: white !important;
+  padding: 60px 0 30px !important;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(5px); /* Optional: adds blur effect like work section */
+}
+
+/* Footer container */
+.footer .container {
+  background-color: transparent !important;
+}
+
+/* Footer items - matching work section cards */
+.footer .footer-item {
+  background: rgba(30, 30, 30, 0.95) !important; /* Missing semicolon added */
+  padding: 25px !important;
+  border-left: 3px solid #ff9e00 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+/* Fix Connect header alignment */
+.footer .col-lg-4:nth-child(2) .footer-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* Semi-black transparent background for Location, Connect, and Contact sections */
+.footer .footer-item.location,
+.footer .footer-item.connect,
+.footer .footer-item.contact {
+  background: rgba(30, 30, 30, 0.85) !important;
 }
