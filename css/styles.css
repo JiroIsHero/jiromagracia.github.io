@@ -3854,7 +3854,7 @@ textarea.form-control-lg {
   }
   
   .navbar-collapse {
-    background-color: #FFF8F0 !important; /* Ivory background */
+    background-color: #333 !important; /* Ivory background */
     padding: 1.5rem;
     margin-top: 0.75rem;
     border-radius: 12px;
@@ -10823,45 +10823,50 @@ footer.footer {
 
 /* Social Links Container */
 .footer-item .social-links {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Increased from 20px to 40px */
+    margin-top: 20px; /* Added more top margin */
+    margin-bottom: 10px;
+    padding: 15px 0; /* Added vertical padding */
 }
 
-/* Social Icons - White by default */
+/* Social Icons */
 .footer-item .social-link {
-  color: white !important; /* Changed to white */
-  font-size: 1.5rem;
-  transition: all 0.3s ease;
+    color: white !important;
+    font-size: 2.2rem !important; /* Increased from 1.5rem */
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px; /* Fixed width */
+    height: 60px; /* Fixed height */
 }
 
-/* Social Icons - Orange on hover */
+/* Hover Effects */
 .footer-item .social-link:hover {
-  color: #ff9e00 !important; /* Orange on hover */
-  transform: translateY(-3px);
+    color: #ff9e00 !important;
+    transform: translateY(-5px) scale(1.1); /* Enhanced hover effect */
+    text-decoration: none;
 }
 
-/* Direct icon targeting (if needed) */
+/* Icon Styling */
 .footer-item .social-links .fab,
 .footer-item .social-links .fas {
-  color: inherit !important; /* Inherits white color */
-}
-/* Hover Effects */
-.footer .social-link:hover {
-  color: #ffcc73;
-  transform: translateY(-3px);
-  text-decoration: none; /* Prevents underline on hover */
+    color: inherit !important;
+    transition: inherit;
+    line-height: 1;
 }
 
-/* Ensure all icons have same visual weight */
-.footer .fab,
-.footer .fas,
-.footer .footer-icon {
-  line-height: 1; /* Fixes vertical alignment */
-  width: 1em; /* Ensures consistent width */
+/* Magnet Icon Above */
+.footer-icon-container {
+    margin-bottom: 25px !important; /* Increased spacing */
 }
 
+.footer-icon-container .footer-icon {
+    font-size: 2.5rem !important; /* Larger magnet icon */
+    color: white !important;
+}
 /* Text content */
 .footer p {
   color: rgba(255, 255, 255, 0.9) !important;
