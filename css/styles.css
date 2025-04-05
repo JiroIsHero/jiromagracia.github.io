@@ -3847,14 +3847,15 @@ textarea.form-control-lg {
   width: 100% !important;
 }
 
-/* Mobile Menu - Ivory Background */
+/* Mobile Menu - Correct Background */
 @media (max-width: 992px) {
   .navbar {
     padding: 0.5rem 1rem;
+    background-color: rgba(0, 0, 0, 0.85) !important; /* Ensure navbar stays dark */
   }
   
   .navbar-collapse {
-    background-color: #333 !important; /* Ivory background */
+    background-color: rgba(0, 0, 0, 0.9) !important; /* Dark background */
     padding: 1.5rem;
     margin-top: 0.75rem;
     border-radius: 12px;
@@ -3866,35 +3867,26 @@ textarea.form-control-lg {
   }
   
   .nav-link {
-    color: #333 !important; /* Dark text for contrast on ivory */
+    color: white !important; /* White text */
     padding: 0.75rem 1.25rem !important;
     border-radius: 6px;
     transition: all 0.3s ease;
   }
   
   .nav-link:hover {
-    background-color: rgba(0,0,0,0.05);
-    color: #ff9e00 !important; /* Orange on hover */
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #ff9e00 !important;
   }
   
-  .hover-underline::after {
-    display: none;
+  .navbar-toggler.collapsed {
+    background-color: transparent !important;
   }
-}
-
-/* Toggler Icon - White for dark navbar */
-.navbar-toggler {
-  border: none;
-  padding: 0.5rem;
-  color: white !important; /* White toggler icon */
-}
-
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-
-.navbar-toggler:focus {
-  box-shadow: 0 0 0 3px rgba(255, 158, 0, 0.3); /* Orange focus ring */
+  
+  /* Fix for Bootstrap's default classes */
+  .navbar-dark .navbar-toggler {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
 }
 .card > hr {
   margin-right: 0;
