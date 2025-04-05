@@ -11336,8 +11336,8 @@ section#about h2.page-section-heading.text-uppercase.text-white {
 
 /* === FORCE BACKGROUND COLORS === */
 #work-education-section .work-experience .content {
-  background: rgba(0, 50, 60, 0.9) !important;
-  border-left-color: #00b4d8 !important;
+  background: rgba(30, 30, 30, 0.85) !important;
+  3px solid #f39c12; /* Orange accent like Work section */
   background-image: linear-gradient(rgba(0,180,216,0.03), rgba(0,180,216,0.03)) !important;
 }
 
@@ -11407,6 +11407,36 @@ a, button, .timeline-item {
 img {
   max-width: 100%;
   height: auto;
+}
+/* About Section Box - Now matches Education section */
+.content-box.about-box {
+  padding: 40px;
+  background: rgba(30, 30, 30, 0.85); /* Dark gray like Education section */
+  border-left: 3px solid #f39c12; /* Orange accent like Work section */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+.content-box.about-box:hover {
+  transform: translateY(-5px);
+  background: rgba(40, 40, 40, 0.9); /* Slightly lighter on hover */
+}
+
+.about-text {
+  color: white;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .content-box.about-box {
+      padding: 25px;
+  }
+  .about-text {
+      font-size: 1rem;
+  }
 }
 }
 }
