@@ -11698,3 +11698,17 @@ a.contact-email-link {
   from { transform: translateY(0); }
   to { transform: translateY(-4px); }
 }
+/* Profile Picture Styles */
+.profile-picture {
+  width: 180px; /* Slightly smaller than text column */
+  height: 180px;
+  object-fit: cover;
+  border: 0px solid #ff9e00;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+/* Ensure About section stays same width */
+#about .col-lg-8 {
+  max-width: 800px; /* Match your existing about width */
+}
