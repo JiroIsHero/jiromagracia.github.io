@@ -11653,38 +11653,43 @@ html {
 a.contact-email-link {
   display: block !important;
 }
-/* CV Download Button Styles */
+/* Flat Orange CV Button - No Gradient, No Glow */
 .cv-download-btn {
-  padding: 12px 30px;
+  padding: 12px 20px;
   border-radius: 50px;
   font-weight: 600;
-  text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.3s ease;
-  background: linear-gradient(135deg, #ff9e00 0%, #ff6b00 100%);
-  border: none;
-  box-shadow: 0 4px 15px rgba(255, 158, 0, 0.3);
-  color: white;
+  background: #ff9e00 !important; /* Flat orange */
+  border: none !important;
+  box-shadow: none !important; /* No glow */
+  color: white !important;
+  font-family: 'Caveat', cursive;
+  font-size: 15px;
   display: inline-block;
   position: relative;
-  overflow: hidden;
+  text-transform: uppercase;
 }
 
+/* Hover State */
 .cv-download-btn:hover {
+  background: #e08d00 !important; /* Slightly darker orange */
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(255, 158, 0, 0.4);
-  text-decoration: none;
-  color: white;
+  color: white !important;
 }
 
+/* Active State */
 .cv-download-btn:active {
   transform: translateY(1px);
 }
 
+/* Download Icon */
 .cv-download-btn i {
   transition: all 0.3s ease;
+  margin-right: 8px;
 }
 
+/* Keep bounce animation */
 .cv-download-btn:hover i {
   animation: bounce 0.5s infinite alternate;
 }
@@ -11693,32 +11698,3 @@ a.contact-email-link {
   from { transform: translateY(0); }
   to { transform: translateY(-4px); }
 }
-/* Force orange gradient like your design */
-.cv-download-btn {
-  background: linear-gradient(135deg, #ff9e00 0%, #ff6b00 100%) !important;
-  border: none !important;
-}
-/* Fix for invisible CV button */
-.cv-download-btn {
-  opacity: 1 !important;
-  visibility: visible !important;
-  background: linear-gradient(135deg, #ff9e00 0%, #ff6b00 100%) !important;
-  color: white !important;
-  border: none !important;
-  display: inline-block !important;
-  padding: 12px 30px !important;
-  border-radius: 50px !important;
-  font-weight: 600 !important;
-  box-shadow: 0 4px 15px rgba(255, 158, 0, 0.3) !important;
-  position: relative !important;
-}
-
-.cv-download-btn:hover {
-  transform: translateY(-3px) !important;
-  box-shadow: 0 6px 20px rgba(255, 158, 0, 0.4) !important;
-}
-
-/* Remove conflicting animations */
-.cv-download-btn.text-fade {
-  animation: none !important;
-  opacity: 1 !important;
