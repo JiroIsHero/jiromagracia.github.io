@@ -11693,3 +11693,8 @@ a.contact-email-link {
   from { transform: translateY(0); }
   to { transform: translateY(-4px); }
 }
+/* Force orange gradient like your design */
+.cv-download-btn {
+  background: linear-gradient(135deg, #ff9e00 0%, #ff6b00 100%) !important;
+  border: none !important;
+}
