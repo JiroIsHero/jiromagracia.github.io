@@ -11750,4 +11750,65 @@ a.contact-email-link {
                     title="Jiro Magracia Showreel">
             </iframe>
         </div>
-        
+/* ===== Timeline Icon Container ===== */
+.timeline-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: white;
+  border-radius: 50%;
+  border: 2px solid #FFD700;
+  position: absolute;
+  left: -16px;
+  transition: all 0.3s ease;
+}
+
+/* ===== Avatar Image Styles ===== */
+.timeline-icon img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+/* ===== Double Bounce Animation ===== */
+.timeline-item:hover .timeline-icon {
+  animation: container-bounce 0.5s ease infinite alternate;
+}
+
+.timeline-item:hover .timeline-icon img {
+  animation: avatar-bounce 0.5s ease infinite alternate;
+}
+
+@keyframes container-bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
+
+@keyframes avatar-bounce {
+  0%, 100% { 
+    transform: translateY(0) scale(1);
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.03);
+    animation-timing-function: cubic-bezier(0.33, 0, 0.67, 0);
+  }
+}
+
+/* ===== Link Styles ===== */
+.timeline-link {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== Mobile Styles ===== */
+@media (max-width: 768px) {
+  .timeline-link {
+    padding: 12px 0;
+  }
+}
