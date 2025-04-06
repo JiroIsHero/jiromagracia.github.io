@@ -11698,3 +11698,27 @@ a.contact-email-link {
   background: linear-gradient(135deg, #ff9e00 0%, #ff6b00 100%) !important;
   border: none !important;
 }
+/* Fix for invisible CV button */
+.cv-download-btn {
+  opacity: 1 !important;
+  visibility: visible !important;
+  background: linear-gradient(135deg, #ff9e00 0%, #ff6b00 100%) !important;
+  color: white !important;
+  border: none !important;
+  display: inline-block !important;
+  padding: 12px 30px !important;
+  border-radius: 50px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 15px rgba(255, 158, 0, 0.3) !important;
+  position: relative !important;
+}
+
+.cv-download-btn:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 20px rgba(255, 158, 0, 0.4) !important;
+}
+
+/* Remove conflicting animations */
+.cv-download-btn.text-fade {
+  animation: none !important;
+  opacity: 1 !important;
