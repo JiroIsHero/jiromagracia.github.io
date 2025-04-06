@@ -116,14 +116,15 @@
 <!-- Video Section -->
 <section class="py-5">
     <div class="container">
-        <div class="ratio ratio-16x9 position-relative"> <!-- Added position-relative -->
-            <iframe src="https://player.vimeo.com/video/1058698965?h=552822f103&autopause=0&transparent=0&quality=1080p" 
-                    frameborder="0" 
-                    allow="autoplay; fullscreen; picture-in-picture" 
-                    allowfullscreen
-                    class="rounded shadow"
-                    loading="lazy" <!-- Added lazy loading -->
-                    title="Jiro Magracia Showreel"> <!-- Accessibility -->
+        <div class="ratio ratio-16x9 position-relative">
+            <iframe 
+                src="https://player.vimeo.com/video/1058698965?h=552822f103&autopause=0&transparent=0&quality=1080p" 
+                frameborder="0" 
+                allow="autoplay; fullscreen; picture-in-picture" 
+                allowfullscreen
+                class="rounded shadow"
+                loading="lazy"
+                title="Jiro Magracia Showreel">
             </iframe>
             <div class="vimeo-loader position-absolute top-50 start-50 translate-middle">
                 <div class="spinner-border text-orange" role="status">
@@ -131,16 +132,17 @@
                 </div>
             </div>
         </div>
-<!-- Performance Notice - Updated -->
-<p class="text-center mt-3 video-caption">
-    For optimal playback, 
-    <a href="https://vimeo.com/1058698965" 
-    <p>
-        <a href="..." target="_blank" class="highlight-link orange-link">
-          view on Vimeo
-        </a>
-      </p>
+        
+        <!-- Performance Notice - Fixed Link -->
+        <p class="text-center mt-3 video-caption">
+            For optimal playback, 
+            <a href="https://vimeo.com/1058698965" target="_blank" class="highlight-link orange-link">
+                view on Vimeo
+            </a>.
+        </p>
+    </div>
 </section>
+
 <!-- Vimeo API -->
 <script src="https://player.vimeo.com/api/player.js" defer></script>
     </body>
