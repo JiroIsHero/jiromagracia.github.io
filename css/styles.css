@@ -11751,21 +11751,3 @@ a.contact-email-link {
             </iframe>
         </div>
         
-        <!-- Updated Caption -->
-        <p class="text-center mt-3 video-caption">
-            For optimal playback, <a href="https://vimeo.com/1058698965" target="_blank" class="highlight-link">view on Vimeo</a>.
-        </p>
-    </div>
-</section>
-/* Explicit styling */
-.orange-link {
-  color: #ff9e00 !important;
-  font-family: 'Caveat', cursive !important;
-  font-weight: 700;
-  font-size: 1.25rem;
-}
-
-.orange-link:hover {
-  color: #ffcc00 !important;
-  text-decoration: underline;
-}
