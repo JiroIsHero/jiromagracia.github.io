@@ -11653,3 +11653,43 @@ html {
 a.contact-email-link {
   display: block !important;
 }
+/* CV Download Button Styles */
+.cv-download-btn {
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #ff9e00 0%, #ff6b00 100%);
+  border: none;
+  box-shadow: 0 4px 15px rgba(255, 158, 0, 0.3);
+  color: white;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.cv-download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 158, 0, 0.4);
+  text-decoration: none;
+  color: white;
+}
+
+.cv-download-btn:active {
+  transform: translateY(1px);
+}
+
+.cv-download-btn i {
+  transition: all 0.3s ease;
+}
+
+.cv-download-btn:hover i {
+  animation: bounce 0.5s infinite alternate;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-4px); }
+}
