@@ -113,19 +113,37 @@
       }, 100);
     });
   </script>
-        <div class="ratio ratio-16x9"> <!-- Bootstrap responsive ratio -->
-            <iframe src="https://player.vimeo.com/video/1058698965?h=552822f103" 
+<!-- Video Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="ratio ratio-16x9 position-relative"> <!-- Added position-relative -->
+            <iframe src="https://player.vimeo.com/video/1058698965?h=552822f103&autopause=0&transparent=0&quality=1080p" 
                     frameborder="0" 
-                    allow="autoplay; fullscreen" 
+                    allow="autoplay; fullscreen; picture-in-picture" 
                     allowfullscreen
-                    class="rounded shadow"> <!-- Added rounded corners and shadow -->
+                    class="rounded shadow"
+                    loading="lazy" <!-- Added lazy loading -->
+                    title="Jiro Magracia Showreel"> <!-- Accessibility -->
             </iframe>
+            <div class="vimeo-loader position-absolute top-50 start-50 translate-middle">
+                <div class="spinner-border text-orange" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
         </div>
-    </div>
+<!-- Performance Notice - Updated -->
+<p class="text-center mt-3 video-caption">
+    For optimal playback, 
+    <a href="https://vimeo.com/1058698965" 
+    <p>
+        <a href="..." target="_blank" class="highlight-link orange-link">
+          view on Vimeo
+        </a>
+      </p>
+      
 </section>
-
-<!-- Place this right before </body> -->
-<script src="https://player.vimeo.com/api/player.js"></script>
+<!-- Vimeo API -->
+<script src="https://player.vimeo.com/api/player.js" defer></script>
     </body>
 <!-- Gradient Line -->
 <div class="half-line-divider"></div>
@@ -249,25 +267,18 @@
 <!-- About Section -->
 <section class="page-section" id="about" style="background-color: #f5f5f5; color: #ffffff; padding: 40px 0;">
     <div class="container">
-<!-- Profile Picture - Centered -->
+        <!-- About Section Heading -->
+         <!-- Profile Picture -->
 <div class="row justify-content-center mb-4">
-    <div class="col-12 text-center">
+    <div class="col-lg-8 text-center">
         <img src="assets/your-profile.jpg" alt="Jiro Magracia" class="profile-picture">
     </div>
 </div>
-
-<!-- About Heading - Keep your existing style -->
-<h2 class="text-center text-uppercase mb-2" 
-    style="font-family: 'Quicksand', sans-serif; font-weight: 600; color: #fffefe;">
-    About
-</h2>
-
-<!-- About Content -->
-<div class="row justify-content-center">
-    <div class="col-lg-8">
-        <!-- Your existing about text content here -->
-    </div>
-</div>
+        <h2 class="text-center text-uppercase mb-2" 
+            style="font-family: 'Quicksand', sans-serif; font-weight: 600; color: #fffefe;">
+            About
+        </h2>
+        
         <!-- Introduction -->
         <p class="lead text-center mb-4" style="color: #ffffff;">A brief introduction.</p>
         

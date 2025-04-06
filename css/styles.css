@@ -63,8 +63,8 @@
   --bs-border-radius-xl: 1rem;
   --bs-border-radius-2xl: 2rem;
   --bs-border-radius-pill: 50rem;
-  --bs-link-color: #1abc9c;
-  --bs-link-hover-color: #15967d;
+  --bs-link-color: #ff9e00; /* Link color */
+  --bs-link-hover-color: #ffcc00; /* Hover color */
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
 }
@@ -11716,4 +11716,56 @@ a.contact-email-link {
       width: 150px;
       height: 150px;
   }
+}
+/* Video Loading State */
+.vimeo-loader {
+  z-index: 5;
+  display: none;
+}
+.text-orange {
+  color: #ff9e00;
+}
+
+/* Performance Optimizations */
+.ratio-16x9 iframe {
+  background: #111; /* Prevents flash of white */
+  transition: opacity 0.3s ease;
+}
+.ratio-16x9.loading iframe {
+  opacity: 0.3;
+}
+.ratio-16x9.loading .vimeo-loader {
+  display: block;
+}
+<!-- Video Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="ratio ratio-16x9 position-relative">
+            <iframe src="https://player.vimeo.com/video/1058698965?h=552822f103&autopause=0&transparent=0&quality=1080p" 
+                    frameborder="0" 
+                    allow="autoplay; fullscreen; picture-in-picture" 
+                    allowfullscreen
+                    class="rounded shadow"
+                    loading="lazy"
+                    title="Jiro Magracia Showreel">
+            </iframe>
+        </div>
+        
+        <!-- Updated Caption -->
+        <p class="text-center mt-3 video-caption">
+            For optimal playback, <a href="https://vimeo.com/1058698965" target="_blank" class="highlight-link">view on Vimeo</a>.
+        </p>
+    </div>
+</section>
+/* Explicit styling */
+.orange-link {
+  color: #ff9e00 !important;
+  font-family: 'Caveat', cursive !important;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.orange-link:hover {
+  color: #ffcc00 !important;
+  text-decoration: underline;
 }
