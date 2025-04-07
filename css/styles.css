@@ -11761,7 +11761,7 @@ a.contact-email-link {
   background: white;
   border-radius: 50%;
   border: 2px solid #FFD700;
-  position: relative;
+  position: absolute;
   left: auto;
   transition: all 0.3s ease;
 }
