@@ -135,88 +135,149 @@
             });
         </script>
         
-        <!-- Video Section -->
-        <section class="py-5">
-            <div class="container">
-                <div class="ratio ratio-16x9 position-relative loading" id="video-container">
-                    <iframe 
-                        src="https://player.vimeo.com/video/1058698965?h=552822f103&autopause=0&transparent=0&quality=1080p&autoplay=0&muted=1&preload=auto" 
-                        frameborder="0" 
-                        allow="autoplay; fullscreen; picture-in-picture" 
-                        allowfullscreen
-                        class="rounded shadow"
-                        loading="eager"
-                        title="Jiro Magracia Showreel"
-                        id="vimeo-player">
-                    </iframe>
-                    <div class="vimeo-loader position-absolute top-50 start-50 translate-middle">
-                        <div class="spinner-border text-orange" style="width: 3rem; height: 3rem;" role="status">
-                            <span class="visually-hidden">Loading...</span>
-                        </div>
+<!-- Video Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="ratio ratio-16x9 position-relative" id="video-container">
+            <!-- Primary Vimeo Embed -->
+            <iframe 
+                src="https://player.vimeo.com/video/1058698965?h=552822f103&autopause=0&transparent=0&quality=1080p" 
+                frameborder="0" 
+                allow="fullscreen; picture-in-picture" 
+                allowfullscreen
+                class="rounded shadow"
+                loading="lazy"
+                title="Jiro Magracia Showreel"
+                id="vimeo-player">
+            </iframe>
+            
+            <!-- Fallback Content (hidden by default) -->
+            <div id="video-fallback" class="position-absolute top-0 start-0 w-100 h-100 bg-dark d-none flex-column justify-content-center align-items-center text-center p-3 rounded">
+                <div class="vimeo-loader position-absolute top-50 start-50 translate-middle">
+                    <div class="spinner-border text-orange" style="width: 3rem; height: 3rem;" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <div id="fallback-message" class="d-none">
+                    <i class="fas fa-video-slash text-orange mb-3" style="font-size: 2rem;"></i>
+                    <p class="text-white mb-4">Alternative viewing options:</p>
+                    <div class="d-flex gap-3 flex-wrap justify-content-center">
+                        <a href="https://vimeo.com/1058698965" class="btn btn-orange" target="_blank" rel="noopener">
+                            <i class="fab fa-vimeo-v me-2"></i> Watch on Vimeo
+                        </a>
+                        <button id="try-again-btn" class="btn btn-outline-light">
+                            <i class="fas fa-sync-alt me-2"></i> Retry
+                        </button>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Vimeo API with enhanced playback control -->
-        <script src="https://player.vimeo.com/api/player.js"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const container = document.getElementById('video-container');
-                const iframe = document.getElementById('vimeo-player');
-                const loader = document.querySelector('.vimeo-loader');
-                
-                // Show loader immediately
-                loader.style.display = 'block';
-                
-                // Initialize player
-                const player = new Vimeo.Player(iframe);
-                
-                // When player is ready
-                player.ready().then(function() {
-                    container.classList.remove('loading');
-                    loader.style.display = 'none';
-                    
-                    // Pre-buffer the video
-                    player.setVolume(0).then(function() {
-                        return player.play().then(function() {
-                            setTimeout(() => player.pause(), 300);
-                        });
-                    });
-                    
-                    // Optimize for mobile
-                    function handleFirstPlay() {
-                        player.off('play', handleFirstPlay);
-                        player.setVolume(1);
-                    }
-                    player.on('play', handleFirstPlay);
-                    
-                }).catch(function(error) {
-                    console.error('Error loading video:', error);
-                    container.classList.remove('loading');
-                    loader.style.display = 'none';
-                });
-                
-                // Pause when not visible
-                if ('IntersectionObserver' in window) {
-                    const observer = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            player.getPaused().then(paused => {
-                                if (entry.isIntersecting && !entry.isIntersectingRatio < 0.5) {
-                                    if (paused) player.play();
-                                } else {
-                                    if (!paused) player.pause();
-                                }
-                            });
-                        });
-                    }, {threshold: [0.5]});
-                    
-                    observer.observe(iframe);
-                }
-            });
-        </script>
+        </div>
     </div>
 </section>
+
+<!-- Vimeo API with corporate-friendly loading -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('video-container');
+    const iframe = document.getElementById('vimeo-player');
+    const fallback = document.getElementById('video-fallback');
+    const loader = fallback.querySelector('.vimeo-loader');
+    const fallbackMsg = document.getElementById('fallback-message');
+    const tryAgainBtn = document.getElementById('try-again-btn');
+    
+    let player;
+    let attempts = 0;
+    const MAX_ATTEMPTS = 2;
+
+    // Show loading state
+    fallback.classList.remove('d-none');
+    loader.style.display = 'block';
+
+    function initVimeo() {
+        attempts++;
+        
+        // Method 1: Standard Vimeo API
+        if (typeof Vimeo !== 'undefined') {
+            try {
+                player = new Vimeo.Player(iframe);
+                
+                player.ready().then(function() {
+                    // Success - hide fallback
+                    fallback.classList.add('d-none');
+                    
+                    // Set up mobile volume control
+                    player.on('play', function() {
+                        player.setVolume(1).catch(() => {});
+                    });
+                    
+                }).catch(showFallback);
+                
+                player.on('error', showFallback);
+                return;
+            } catch(e) {
+                console.error('Vimeo API error:', e);
+            }
+        }
+        
+        // Method 2: Fallback to direct embed if API blocked
+        if (attempts >= MAX_ATTEMPTS) {
+            iframe.src = 'https://vimeo.com/embed/1058698965?autoplay=0';
+            setTimeout(checkEmbedStatus, 2000);
+        } else {
+            setTimeout(initVimeo, 1000 * attempts);
+        }
+    }
+
+    function checkEmbedStatus() {
+        // Check if iframe has content
+        try {
+            if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
+                fallback.classList.add('d-none');
+            } else {
+                showFallback();
+            }
+        } catch(e) {
+            showFallback();
+        }
+    }
+
+    function showFallback() {
+        loader.style.display = 'none';
+        fallbackMsg.classList.remove('d-none');
+        
+        // Load Font Awesome only when needed
+        if (!document.querySelector('.fa-video-slash')) {
+            const faScript = document.createElement('script');
+            faScript.src = 'https://kit.fontawesome.com/your-kit-code.js';
+            faScript.crossOrigin = 'anonymous';
+            document.head.appendChild(faScript);
+        }
+    }
+
+    tryAgainBtn.addEventListener('click', function() {
+        attempts = 0;
+        fallbackMsg.classList.add('d-none');
+        loader.style.display = 'block';
+        initVimeo();
+    });
+
+    // Initial attempt with timeout
+    initVimeo();
+    setTimeout(function() {
+        if (fallbackMsg.classList.contains('d-none') && !fallback.classList.contains('d-none')) {
+            showFallback();
+        }
+    }, 5000);
+});
+
+// Load Vimeo API normally, but with fallback
+const vimeoScript = document.createElement('script');
+vimeoScript.src = 'https://player.vimeo.com/api/player.js';
+vimeoScript.onerror = function() {
+    console.log('Vimeo API blocked, using fallback methods');
+};
+document.head.appendChild(vimeoScript);
+</script>
 
 <!-- Gradient Line -->
 <div class="half-line-divider"></div>
