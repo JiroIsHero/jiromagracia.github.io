@@ -11813,3 +11813,16 @@ a.contact-email-link {
     padding: 12px 0;
   }
 }
+/* Make timeline links behave like blocks */
+.timeline-link {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Ensure content area matches others */
+.timeline-link .content {
+  padding: 20px; /* Match other items */
+  margin: 0;
+}
