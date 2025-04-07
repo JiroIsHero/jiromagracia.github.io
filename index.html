@@ -77,69 +77,149 @@
 <!-- Video Section -->
 <section id="portfolio" class="py-3" style="color: white; font-family: 'Quicksand', sans-serif;">
     <div class="container">
-<!-- Fixed centered heading with animation -->
-<div class="text-center">
-    <h2 class="text-uppercase mb-2 animate-fade-in" style="opacity:0;">
-      Jiro Magracia Demoreel
-    </h2>
-    <p class="lead mb-3 animate-fade-in" style="opacity:0; animation-delay:0.3s;">
-      My Animation Reel Spring 2025
-    </p>
-  </div>
-  
-  <style>
-    /* Animation CSS */
-    .animate-fade-in {
-      animation: fadeInUp 1s ease-out forwards;
-      transform: translateY(20px);
-    }
-    
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
-  
-  <script>
-    // Optional: Trigger animations when visible
-    document.addEventListener('DOMContentLoaded', function() {
-      const elements = document.querySelectorAll('.animate-fade-in');
-      elements.forEach(el => el.style.opacity = '0');
-      
-      setTimeout(() => {
-        elements.forEach(el => el.style.opacity = '');
-      }, 100);
-    });
-  </script>
-<!-- Video Section -->
-<section class="py-5">
-    <div class="container">
-        <div class="ratio ratio-16x9 position-relative">
-            <iframe 
-                src="https://player.vimeo.com/video/1058698965?h=552822f103&autopause=0&transparent=0&quality=1080p" 
-                frameborder="0" 
-                allow="autoplay; fullscreen; picture-in-picture" 
-                allowfullscreen
-                class="rounded shadow"
-                loading="lazy"
-                title="Jiro Magracia Showreel">
-            </iframe>
-            <div class="vimeo-loader position-absolute top-50 start-50 translate-middle">
-                <div class="spinner-border text-orange" role="status">
-                    <span class="visually-hidden">Loading...</span>
+        <!-- Fixed centered heading with animation -->
+        <div class="text-center">
+            <h2 class="text-uppercase mb-2 animate-fade-in" style="opacity:0;">
+                Jiro Magracia Demoreel
+            </h2>
+            <p class="lead mb-3 animate-fade-in" style="opacity:0; animation-delay:0.3s;">
+                My Animation Reel Spring 2025
+            </p>
+        </div>
+        
+        <style>
+            /* Animation CSS */
+            .animate-fade-in {
+                animation: fadeInUp 1s ease-out forwards;
+                transform: translateY(20px);
+            }
+            
+            @keyframes fadeInUp {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            /* Video Loading State */
+            .vimeo-loader {
+                z-index: 5;
+                display: none;
+            }
+            .text-orange {
+                color: #ff9e00;
+            }
+
+            /* Performance Optimizations */
+            .ratio-16x9 iframe {
+                background: #111; /* Prevents flash of white */
+                transition: opacity 0.3s ease;
+            }
+            .ratio-16x9.loading iframe {
+                opacity: 0.3;
+            }
+            .ratio-16x9.loading .vimeo-loader {
+                display: block;
+            }
+        </style>
+        
+        <script>
+            // Trigger animations when visible
+            document.addEventListener('DOMContentLoaded', function() {
+                const elements = document.querySelectorAll('.animate-fade-in');
+                elements.forEach(el => el.style.opacity = '0');
+                
+                setTimeout(() => {
+                    elements.forEach(el => el.style.opacity = '');
+                }, 100);
+            });
+        </script>
+        
+        <!-- Video Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="ratio ratio-16x9 position-relative loading" id="video-container">
+                    <iframe 
+                        src="https://player.vimeo.com/video/1058698965?h=552822f103&autopause=0&transparent=0&quality=1080p&autoplay=0&muted=1&preload=auto" 
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture" 
+                        allowfullscreen
+                        class="rounded shadow"
+                        loading="eager"
+                        title="Jiro Magracia Showreel"
+                        id="vimeo-player">
+                    </iframe>
+                    <div class="vimeo-loader position-absolute top-50 start-50 translate-middle">
+                        <div class="spinner-border text-orange" style="width: 3rem; height: 3rem;" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Vimeo API with enhanced playback control -->
+        <script src="https://player.vimeo.com/api/player.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const container = document.getElementById('video-container');
+                const iframe = document.getElementById('vimeo-player');
+                const loader = document.querySelector('.vimeo-loader');
+                
+                // Show loader immediately
+                loader.style.display = 'block';
+                
+                // Initialize player
+                const player = new Vimeo.Player(iframe);
+                
+                // When player is ready
+                player.ready().then(function() {
+                    container.classList.remove('loading');
+                    loader.style.display = 'none';
+                    
+                    // Pre-buffer the video
+                    player.setVolume(0).then(function() {
+                        return player.play().then(function() {
+                            setTimeout(() => player.pause(), 300);
+                        });
+                    });
+                    
+                    // Optimize for mobile
+                    function handleFirstPlay() {
+                        player.off('play', handleFirstPlay);
+                        player.setVolume(1);
+                    }
+                    player.on('play', handleFirstPlay);
+                    
+                }).catch(function(error) {
+                    console.error('Error loading video:', error);
+                    container.classList.remove('loading');
+                    loader.style.display = 'none';
+                });
+                
+                // Pause when not visible
+                if ('IntersectionObserver' in window) {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            player.getPaused().then(paused => {
+                                if (entry.isIntersecting && !entry.isIntersectingRatio < 0.5) {
+                                    if (paused) player.play();
+                                } else {
+                                    if (!paused) player.pause();
+                                }
+                            });
+                        });
+                    }, {threshold: [0.5]});
+                    
+                    observer.observe(iframe);
+                }
+            });
+        </script>
+    </div>
 </section>
 
-<!-- Vimeo API -->
-<script src="https://player.vimeo.com/api/player.js" defer></script>
-    </body>
 <!-- Gradient Line -->
 <div class="half-line-divider"></div>
-</style>
         <!-- Resume Section -->
         <section id="resume" class="py-5" style="color: white; font-family: 'Quicksand', sans-serif;">
     <div class="container">
