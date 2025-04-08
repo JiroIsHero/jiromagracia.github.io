@@ -149,36 +149,36 @@
                 id="vimeo-player">
             </iframe>
             
-<!-- Fallback Content (hidden by default) -->
-<div id="video-fallback" class="position-absolute top-0 start-0 w-100 h-100 bg-dark d-none flex-column justify-content-center align-items-center text-center p-3 rounded">
-    <div class="vimeo-loader position-absolute top-50 start-50 translate-middle">
-        <div class="spinner-border text-orange" style="width: 3rem; height: 3rem;" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-    </div>
-    <div id="fallback-message" class="d-none">
-        <i class="fas fa-video-slash text-orange mb-3" style="font-size: 2rem;"></i>
-        <p class="text-white fw-semibold">Alternative viewing options:</p>
-        
-        <!-- 👇 New line with direct link -->
-        <p class="text-white mb-3">
-            If playback does not work, 
-            <a href="https://vimeo.com/1058698965" class="text-orange fw-semibold text-decoration-underline" target="_blank" rel="noopener">
-                click here to watch on Vimeo
-            </a>.
-        </p>
+            <!-- Fallback Content (hidden by default) -->
+            <div id="video-fallback" class="position-absolute top-0 start-0 w-100 h-100 bg-dark d-flex flex-column justify-content-center align-items-center text-center p-3 rounded">
+                <div class="vimeo-loader">
+                    <div class="spinner-border text-orange" style="width: 3rem; height: 3rem;" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <div id="fallback-message" class="d-none">
+                    <i class="fas fa-video-slash text-orange mb-3" style="font-size: 2rem;"></i>
+                    <p class="text-white fw-semibold">Alternative viewing options:</p>
+                    
+                    <p class="text-white mb-3">
+                        If playback does not work, 
+                        <a href="https://vimeo.com/1058698965" class="text-orange fw-semibold text-decoration-underline" target="_blank" rel="noopener">
+                            click here to watch on Vimeo
+                        </a>.
+                    </p>
 
-        <!-- Existing buttons -->
-        <div class="d-flex gap-3 flex-wrap justify-content-center">
-            <a href="https://vimeo.com/1058698965" class="btn btn-orange" target="_blank" rel="noopener">
-                <i class="fab fa-vimeo-v me-2"></i> Watch on Vimeo
-            </a>
-            <button id="try-again-btn" class="btn btn-outline-light">
-                <i class="fas fa-sync-alt me-2"></i> Retry
-            </button>
+                    <div class="d-flex gap-3 flex-wrap justify-content-center">
+                        <a href="https://vimeo.com/1058698965" class="btn btn-orange" target="_blank" rel="noopener">
+                            <i class="fab fa-vimeo-v me-2"></i> Watch on Vimeo
+                        </a>
+                        <button id="try-again-btn" class="btn btn-outline-light">
+                            <i class="fas fa-sync-alt me-2"></i> Retry
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 </section>
 
 <!-- Vimeo API with corporate-friendly loading -->
@@ -195,9 +195,37 @@ document.addEventListener('DOMContentLoaded', function() {
     let attempts = 0;
     const MAX_ATTEMPTS = 2;
 
-    // Show loading state
-    fallback.classList.remove('d-none');
+    // Show loading state initially
     loader.style.display = 'block';
+    fallbackMsg.classList.add('d-none');
+
+    function showFallback() {
+        loader.style.display = 'none';
+        fallbackMsg.classList.remove('d-none');
+        
+        // Load Font Awesome only when needed
+        if (!document.querySelector('.fa-video-slash')) {
+            const faScript = document.createElement('script');
+            faScript.src = 'https://kit.fontawesome.com/your-kit-code.js';
+            faScript.crossOrigin = 'anonymous';
+            document.head.appendChild(faScript);
+        }
+    }
+
+    function checkEmbedStatus() {
+        // Check if iframe has content
+        try {
+            // This will throw an error due to cross-origin restrictions if not loaded
+            // So we'll rely on the error to trigger the fallback
+            const hasContent = iframe.contentDocument && iframe.contentDocument.readyState === 'complete';
+            if (!hasContent) {
+                throw new Error('No content detected');
+            }
+            fallback.classList.add('d-none');
+        } catch(e) {
+            showFallback();
+        }
+    }
 
     function initVimeo() {
         attempts++;
@@ -216,9 +244,15 @@ document.addEventListener('DOMContentLoaded', function() {
                         player.setVolume(1).catch(() => {});
                     });
                     
-                }).catch(showFallback);
+                }).catch(function(error) {
+                    console.error('Vimeo player ready error:', error);
+                    showFallback();
+                });
                 
-                player.on('error', showFallback);
+                player.on('error', function(error) {
+                    console.error('Vimeo player error:', error);
+                    showFallback();
+                });
                 return;
             } catch(e) {
                 console.error('Vimeo API error:', e);
@@ -227,6 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Method 2: Fallback to direct embed if API blocked
         if (attempts >= MAX_ATTEMPTS) {
+            console.log('Attempting direct embed fallback');
             iframe.src = 'https://vimeo.com/embed/1058698965?autoplay=0';
             setTimeout(checkEmbedStatus, 2000);
         } else {
@@ -234,69 +269,32 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function checkEmbedStatus() {
-        // Check if iframe has content
-        try {
-            if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
-                fallback.classList.add('d-none');
-            } else {
-                showFallback();
-            }
-        } catch(e) {
-            showFallback();
-        }
-    }
-
-    function showFallback() {
-        loader.style.display = 'none';
-        fallbackMsg.classList.remove('d-none');
-        
-        // Load Font Awesome only when needed
-        if (!document.querySelector('.fa-video-slash')) {
-            const faScript = document.createElement('script');
-            faScript.src = 'https://kit.fontawesome.com/your-kit-code.js';
-            faScript.crossOrigin = 'anonymous';
-            document.head.appendChild(faScript);
-        }
-    }
-
     tryAgainBtn.addEventListener('click', function() {
         attempts = 0;
         fallbackMsg.classList.add('d-none');
         loader.style.display = 'block';
+        iframe.src = 'https://player.vimeo.com/video/1058698965?h=552822f103&autopause=0&transparent=0&quality=1080p';
         initVimeo();
     });
 
-    function initVimeo() {
-    // Show loading state
-    fallback.classList.remove('d-none');
-    loader.style.display = 'block';
+    // Load Vimeo API normally, but with fallback
+    const vimeoScript = document.createElement('script');
+    vimeoScript.src = 'https://player.vimeo.com/api/player.js';
+    vimeoScript.onload = initVimeo;
+    vimeoScript.onerror = function() {
+        console.log('Vimeo API blocked, using fallback methods');
+        initVimeo();
+    };
+    document.head.appendChild(vimeoScript);
 
-    // Method 1: Standard Vimeo API
-    if (typeof Vimeo !== 'undefined') {
-        try {
-            player = new Vimeo.Player(iframe);
-            
-            player.ready().then(function() {
-                // Success - hide fallback
-                fallback.classList.add('d-none');
-            }).catch(showFallback);
-            
-            player.on('error', showFallback);
-            return;
-        } catch(e) {
-            console.error('Vimeo API error:', e);
+    // Add timeout in case everything fails silently
+    setTimeout(function() {
+        if (fallback.classList.contains('d-none') === false && 
+            fallbackMsg.classList.contains('d-none') === true) {
             showFallback();
         }
-    }
-
-// Load Vimeo API normally, but with fallback
-const vimeoScript = document.createElement('script');
-vimeoScript.src = 'https://player.vimeo.com/api/player.js';
-vimeoScript.onerror = function() {
-    console.log('Vimeo API blocked, using fallback methods');
-};
-document.head.appendChild(vimeoScript);
+    }, 8000);
+});
 </script>
 
 <!-- Gradient Line -->
