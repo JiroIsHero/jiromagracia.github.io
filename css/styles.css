@@ -10918,41 +10918,24 @@ height: 100vh;
 background-color: transparent; /* Ensure no extra background color */
 }
 
-/* Base styles for body */
-body {
-  margin: 0;
-  min-height: 100vh;
-  position: relative; /* Needed for mobile fix */
-  overflow-x: hidden; /* Prevents horizontal scroll */
-}
-
-/* Fixed background for desktop */
+/* Blurred background - works on all devices */
 body::before {
   content: "";
-  position: fixed; /* Fixed on desktop */
+  position: fixed; /* Fixed on both desktop and mobile */
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background-image: url("https://raw.githubusercontent.com/JiroIsHero/jiromagracia.github.io/main/assets/img/background.jpg");
-  background-size: cover;
   background-position: center;
+  background-size: cover;
   background-repeat: no-repeat;
   z-index: -1;
+  
+  /* Mobile-specific optimizations */
+  -webkit-background-attachment: fixed; /* For Safari/iOS */
+  background-attachment: fixed;
 }
-
-/* Mobile fix (forces background to stay in place) */
-@media (max-width: 768px) {
-  body::before {
-    position: absolute; /* Fixes iOS/Safari scrolling */
-    height: 100vh; /* Full viewport height */
-  }
-
-  /* Locks body scroll to keep background fixed */
-  body {
-    overflow: hidden;
-    height: 100vh;
-  }
 }
 /* Footer Container Structure */
 .footer .row {
