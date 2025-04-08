@@ -2790,7 +2790,7 @@ textarea.form-control-lg {
 .btn {
   --bs-btn-padding-x: 0.75rem;
   --bs-btn-padding-y: 0.375rem;
-  --bs-btn-font-family: ; "Quicksand"
+  --bs-btn-font-family: ; 
   --bs-btn-font-size: 1rem;
   --bs-btn-font-weight: 400;
   --bs-btn-line-height: 1.5;
@@ -11715,6 +11715,7 @@ a.contact-email-link {
 .ratio-16x9.loading .vimeo-loader {
   display: block;
 }
+
 <!-- Video Section -->
 <section class="py-5">
     <div class="container">
@@ -11818,10 +11819,4 @@ a.contact-email-link {
 .navbar-brand .caveat-white {
   font-size: 1.3rem;
   letter-spacing: 0.5px;
-}
-
-/* Reset icon font (if using Font Awesome) */
-.navbar-brand .brand-icon,
-.navbar-brand .fa-linkedin {
-  font-family: 'Font Awesome 6 Free' !important;
 }
