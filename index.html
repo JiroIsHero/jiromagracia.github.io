@@ -267,14 +267,28 @@ document.addEventListener('DOMContentLoaded', function() {
         initVimeo();
     });
 
-    // Initial attempt with timeout
-    initVimeo();
-    setTimeout(function() {
-        if (fallbackMsg.classList.contains('d-none') && !fallback.classList.contains('d-none')) {
+    function initVimeo() {
+    // Show loading state
+    fallback.classList.remove('d-none');
+    loader.style.display = 'block';
+
+    // Method 1: Standard Vimeo API
+    if (typeof Vimeo !== 'undefined') {
+        try {
+            player = new Vimeo.Player(iframe);
+            
+            player.ready().then(function() {
+                // Success - hide fallback
+                fallback.classList.add('d-none');
+            }).catch(showFallback);
+            
+            player.on('error', showFallback);
+            return;
+        } catch(e) {
+            console.error('Vimeo API error:', e);
             showFallback();
         }
-    }, 5000);
-});
+    }
 
 // Load Vimeo API normally, but with fallback
 const vimeoScript = document.createElement('script');
