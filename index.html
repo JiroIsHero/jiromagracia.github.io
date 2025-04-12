@@ -139,7 +139,7 @@
         <div class="ratio ratio-16x9 position-relative" id="video-container">
             <!-- Primary Vimeo Embed -->
             <iframe 
-                src="https://player.vimeo.com/video/1058698965?h=552822f103&autopause=0&transparent=0&quality=1080p" 
+                src="https://player.vimeo.com/video/1074881319?h=3563eafd78&autopause=0&transparent=0&quality=1080p" 
                 frameborder="0" 
                 allow="fullscreen; picture-in-picture" 
                 allowfullscreen
@@ -162,13 +162,13 @@
                     
                     <p class="text-white mb-3">
                         If playback does not work, 
-                        <a href="https://vimeo.com/1058698965" class="text-orange fw-semibold text-decoration-underline" target="_blank" rel="noopener">
+                        <a href="https://vimeo.com/1074881319" class="text-orange fw-semibold text-decoration-underline" target="_blank" rel="noopener">
                             click here to watch on Vimeo
                         </a>.
                     </p>
 
                     <div class="d-flex gap-3 flex-wrap justify-content-center">
-                        <a href="https://vimeo.com/1058698965" class="btn btn-orange" target="_blank" rel="noopener">
+                        <a href="https://vimeo.com/1074881319" class="btn btn-orange" target="_blank" rel="noopener">
                             <i class="fab fa-vimeo-v me-2"></i> Watch on Vimeo
                         </a>
                         <button id="try-again-btn" class="btn btn-outline-light">
@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Method 2: Fallback to direct embed if API blocked
         if (attempts >= MAX_ATTEMPTS) {
             console.log('Attempting direct embed fallback');
-            iframe.src = 'https://vimeo.com/embed/1058698965?autoplay=0';
+            iframe.src = 'https://vimeo.com/embed/1074881319?autoplay=0';
             setTimeout(checkEmbedStatus, 2000);
         } else {
             setTimeout(initVimeo, 1000 * attempts);
@@ -273,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function() {
         attempts = 0;
         fallbackMsg.classList.add('d-none');
         loader.style.display = 'block';
-        iframe.src = 'https://player.vimeo.com/video/1058698965?h=552822f103&autopause=0&transparent=0&quality=1080p';
+        iframe.src = 'https://player.vimeo.com/video/1074881319?h=3563eafd78&autopause=0&transparent=0&quality=1080p';
         initVimeo();
     });
 
